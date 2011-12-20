@@ -1,0 +1,9 @@
+c:\users\marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Test\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Test\bin\Debug\CSharpKoans.Test.dll
+C:\Users\Marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Test\bin\Debug\CSharpKoans.Test.pdb
+C:\Users\Marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Test\bin\Debug\CSharpKoans.Core.exe
+C:\Users\Marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Test\bin\Debug\nunit.framework.dll
+C:\Users\Marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Test\bin\Debug\CSharpKoans.Core.pdb
+C:\Users\Marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Test\bin\Debug\nunit.framework.xml
+C:\Users\Marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Test\obj\Debug\CSharpKoans.Test.dll
+C:\Users\Marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Test\obj\Debug\CSharpKoans.Test.pdb

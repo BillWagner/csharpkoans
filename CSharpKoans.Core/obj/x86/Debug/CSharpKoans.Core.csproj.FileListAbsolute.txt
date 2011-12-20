@@ -1,0 +1,5 @@
+c:\users\marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Core\bin\Debug\CSharpKoans.Core.exe
+c:\users\marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Core\bin\Debug\CSharpKoans.Core.pdb
+c:\users\marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Core\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Core\obj\x86\Debug\CSharpKoans.Core.exe
+c:\users\marina\documents\visual studio 2010\Projects\CSharpKoans\CSharpKoans.Core\obj\x86\Debug\CSharpKoans.Core.pdb
