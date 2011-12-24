@@ -10,14 +10,14 @@ namespace CSharpKoans.Core
     public class KoanContainer
     {
 
-        public IEnumerable<MethodInfo> FindKoanMethods(KoanContainer container)
+        private IEnumerable<MethodInfo> FindKoanMethods(KoanContainer container)
         {
             return container.GetType().GetMethods().Where(m => hasKoanAttribute(m));
         }
 
         private bool hasKoanAttribute(MethodInfo info)
         {
-            return (info.GetCustomAttributes(typeof(KoanAttribute), true).Count() >= 0);
+            return (info.GetCustomAttributes(typeof(KoanAttribute), true).Count()>0);
         }
 
         public IEnumerable<KoanResult> RunKoans(KoanContainer container)

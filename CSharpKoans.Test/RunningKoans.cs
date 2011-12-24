@@ -89,38 +89,25 @@ namespace CSharpKoans.Test
 
         [Test]
         public void TheOutcomeOfAllSuccessfulKoansIsReturned()
-        { }
+        {
+           var result =  new KoanContainer().RunKoans(new SomeSuccesses()).Select(x => x.Message).Aggregate((x, y) => x + System.Environment.NewLine + y);
 
-    
-//[<Test>]
-//let ``The outcome of all successful koans is returned`` () =
-//    let result =
-//        new SomeSuccesses()
-//        |> KoanContainer.runKoans
-//        |> Seq.map (fun x -> x.Message)
-//        |> Seq.reduce (fun x y -> x + System.Environment.NewLine + y)
-    
-//    let expected =
-//        "One has expanded your awareness." + System.Environment.NewLine +
-//        "Two has expanded your awareness."
-        
-//    Assert.AreEqual(expected, result)
-    
-//[<Test>]
-////might want to change this behavior
-//let ``Failed Koans don't stop the enumeration`` () =
-//    let result =
-//        new MixedBag()
-//        |> KoanContainer.runKoans
-//        |> Seq.map (fun x -> x.Message)
-//        |> Seq.reduce (fun x y -> x + System.Environment.NewLine + y)
-        
-        
-//    let expected =
-//        "One has damaged your karma." + System.Environment.NewLine +
-//        "Two has expanded your awareness."
-        
-//    Assert.AreEqual(expected, result)
+            var expected = "One has expanded your awareness." + System.Environment.NewLine + "Two has expanded your awareness.";
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        ////might want to change this behavior
+        public void FailedKoansDontStopTheEnumeration()
+        {
+            var result = new KoanContainer().RunKoans(new MixedBag()).Select(x => x.Message).Aggregate((x, y) => x + System.Environment.NewLine + y);
+
+            var expected = "One has damaged your karma." + System.Environment.NewLine + "Two has expanded your awareness.";
+
+            Assert.AreEqual(expected, result);
+        }
+ 
     }
 
 
