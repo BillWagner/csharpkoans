@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers.cs" />
     <Compile Include="KoanAttribute.cs" />
     <Compile Include="KoanContainer.cs" />
     <Compile Include="KoanResult.cs" />
