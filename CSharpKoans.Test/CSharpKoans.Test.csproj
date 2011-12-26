@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FindingKoans.cs" />
+    <Compile Include="GettingTheWholeOutput.cs" />
     <Compile Include="RunningKoans.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -5,16 +5,6 @@ namespace CSharpKoans.Core
     public abstract class KoanResult
     {
 
-        //        type KoanResult = 
-        //    | Success of string
-        //    | Failure of string * Exception
-        //with
-        //    member this.Message =
-        //        match this with
-        //        | Success x -> x
-        //        | Failure (x, _) -> x
-
-
         public string Message { get; set; }
 
     }
