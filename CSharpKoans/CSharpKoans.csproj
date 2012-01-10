@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutAsserts.cs" />
+    <Compile Include="AboutLinq.cs" />
+    <Compile Include="Library.cs" />
     <Compile Include="PathToEnlightenment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -9,9 +9,16 @@ namespace CSharpKoans
     public class PathToEnlightenment
     {
 
-        public IList<KoanContainer> containers {
-            get { return new List<KoanContainer>() { new AboutAsserts() }; }
+        public IList<KoanContainer> containers
+        {
+            get
+            {
+                return new List<KoanContainer>() { 
+                new AboutAsserts() , 
+                new AboutLinq()
+                 };
             }
+        }
         //let (containers: obj list) = [ ``about asserts``(); 
         //                               ``about let``();
         //                               ``about functions``();
