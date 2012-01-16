@@ -68,7 +68,7 @@ namespace CSharpKoans
             var numbers = new List<int> { 1, 2, 3, 4, 5 };
 
             /* instead of the function __(), put in the correct function of form n=> fn(n), with return type bool */
-            IEnumerable<int> squaredEvens = numbers.Where(n => ___()).Select(n=>n*n); // need a cute way to have a 'FILL ME IN' function here
+            var squaredEvens = numbers.Where(n => ___()).Select(n=> "Fill me in"); // need a cute way to have a 'FILL ME IN' function here
             Assert.AreEqual(4, squaredEvens.First());
         }
 

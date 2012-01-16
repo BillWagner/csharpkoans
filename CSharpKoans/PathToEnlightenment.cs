@@ -9,15 +9,13 @@ namespace CSharpKoans
     public class PathToEnlightenment
     {
 
-        public IList<KoanContainer> containers
+        public IEnumerable<KoanContainer> containers
         {
             get
             {
-                return new List<KoanContainer>() { 
-                    new AboutAsserts() , 
-                    new AboutLambdas(),
-                    new AboutLinq()
-                };
+                yield return new AboutAsserts();
+                yield return new AboutLambdas();
+                yield return new AboutLinq();
             }
         }
 
