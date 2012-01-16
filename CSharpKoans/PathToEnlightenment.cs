@@ -15,6 +15,7 @@ namespace CSharpKoans
             {
                 return new List<KoanContainer>() { 
                 new AboutAsserts() , 
+              new AboutLambdas(),
                 new AboutLinq()
                  };
             }
