@@ -13,7 +13,6 @@ namespace CSharpKoans
         const int ___ = int.MaxValue;
         KoanDelegate FILLMEIN = null;// n => n;
          BooleanKoanDelegate BOOLFILLMEIN =null; //= n => false;
-        Func<int, bool> PREDICATE = null;
       
 
         /*  A lambda expression is an anonymous function that can contain expressions and statements
@@ -56,9 +55,9 @@ namespace CSharpKoans
         }
 
         [Koan]
-        public void FuncsAreDelegatesWithTypeArguments()
+        public void FuncTypesAreTypeSafeShorthandForBuildingDelegateTypes()
         {
-
+            // This Func type does not require a previous delegate definition.
             Func<int, bool> myFunc = x => x > 5;
             bool result = myFunc(4);
             Assert.AreEqual(___, result);
@@ -75,8 +74,8 @@ namespace CSharpKoans
             var smallNumbers = numbers.Where(n => n< 4);
             Assert.AreEqual(___, smallNumbers.Count());
           
-            /* replace PREDICATE with a lambda that returns true if a number is even */
-            IEnumerable<int> evenNumbers = numbers.Where(PREDICATE);
+            /* replace default expression with a lambda that returns true if a number is even */
+            IEnumerable<int> evenNumbers = numbers.Where(default(Func<int, bool>));
             Assert.AreEqual(2, evenNumbers.Count());
         
         }
@@ -87,8 +86,8 @@ namespace CSharpKoans
             int[] numbers = { 1, 9, 7, 3, 6, 8, 5 };
             Assert.AreEqual(___, numbers.Count());
 
-            /* replace PREDICATE with a lambda that returns true if a number is >7 */
-            int largeNumbers = numbers.Count(PREDICATE);
+            /* replace default expression with a lambda that returns true if a number is >7 */
+            int largeNumbers = numbers.Count(default(Func<int, bool>));
             Assert.AreEqual(2, largeNumbers);
         }
 
@@ -97,12 +96,31 @@ namespace CSharpKoans
         {
             int[] numbers = { 1, 9, 7, 3, 6, 8, 5 };
 
-            /* replace PREDICATE with a lambda that returns true if a number is >= 7 */
-            int largeNumbers = numbers.Count(PREDICATE);
+            /* replace default expression with a lambda that returns true if a number is >= 7 */
+            int largeNumbers = numbers.Count(default(Func<int, bool>));
             Assert.AreEqual(3, largeNumbers);
         }
 
-        /* see more lambdas in the next file: AboutLinq! */
+
+        [Koan]
+        public void LambdaExpressionsCanAcceptMultipleParameters()
+        {
+            string FirstName = "Bullwinkle";
+            string LastName = "Moose";
+
+            Func<string, string, string> joinStrings = null;
+
+            /* Define a lambda for joinStrings that returns "LastName, FirstName" */
+            var fullName = joinStrings(FirstName, LastName);
+
+            Assert.AreEqual("Moose, Bullwinkle", fullName);
+        }
+
+        // TODO:  Lambdas can declare parameter types.
+        // TODO: lambdas can contain multiple statements.
+
+
+    /* see more lambdas in the next file: AboutLinq! */
     }
 
 
