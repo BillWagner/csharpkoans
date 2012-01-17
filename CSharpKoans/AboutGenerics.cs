@@ -148,7 +148,7 @@ namespace CSharpKoans
             }
         }
 
-        // use a list of an interface: allows you to add all implementations
+        // use a list of an interface: allows you to add all implementations of the interface
         [Koan]
         public void AGenericDataStructureCanContainInterfaceImplementors()
         {
@@ -164,9 +164,9 @@ namespace CSharpKoans
 
 
 
-        public class Bag<T>
+        public class Bag<T> : IEnumerable<T>
         {
-            List<T> storage = new List<T>();
+            protected List<T> storage = new List<T>();
 
             public void Add(T item)
             {
@@ -184,13 +184,61 @@ namespace CSharpKoans
                     storage[index] = value;
                 }
             }
+
+            /* from the IEnumerable interface */
+            public IEnumerator<T> GetEnumerator()
+            {
+                return storage.GetEnumerator();
+
+            }
+
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return GetEnumerator();
+            }
         }
         // finally: use a generic Collection<T>
         [Koan]
-        public void UsingGenericCollectionGivesYouTypeSafety()
+        public void UsingSpecificInstanceOfGenericCollectionGivesYouTypeSafety()
         {
-          
+           Bag<string> myStrings = new Bag<string>();
+           myStrings.Add("c#");
 
+          // myStrings.Add(6); won't compile
+
+           Assert.Fail("Comment out the assert below and make it pass by writing a generic Contains method in the Bag class");
+           //Assert.True(myStrings.Contains("c#"));
+
+           var cat = new Cat { Name = "behemoth" };
+           Bag<Animal> animals = new Bag<Animal>();
+           animals.Add(cat);
+
+           Assert.Fail("Make Contains work for Animals, too. Uncomment the assertion below. Hint: the contains method on a collection uses the Equals method on the object.");
+            //Assert.True(animals.Contains(cat));
+
+        }
+
+        public class SortableBag<T> : Bag<T> where T : System.IComparable<T>
+        {
+            public IEnumerable<T> Sort() 
+            {
+                
+                return null;
+            }
+        }
+
+        [Koan]
+        public void ConstraintsOnGenericClassesPreventUnintendedUses()
+        {
+            /* this does not compile because Animal does not implement IComparable
+             SortedBag<Animal> sortedAnimals = new SortedBag<Animal>();
+             * */
+
+            SortableBag<int> numbers = new SortableBag<int>() { 5, 7, 8, 3, 27 };
+            var sortedNumbers = numbers.Sort();
+
+            /* make the following asserts pass by filling in the Sort function in SortableBag */
+            Assert.AreEqual(sortedNumbers.Count(), numbers.Count());
 
         }
     }
