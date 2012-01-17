@@ -101,6 +101,8 @@ namespace CSharpKoans
             int largeNumbers = numbers.Count(PREDICATE);
             Assert.AreEqual(3, largeNumbers);
         }
+
+        /* see more lambdas in the next file: AboutLinq! */
     }
 
 
