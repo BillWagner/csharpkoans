@@ -29,7 +29,7 @@ namespace CSharpKoans
             mylist.Insert(3, "a2");
 
             int t = 0;
-            // This causes an InvalidCastException to be returned.
+            // This causes an InvalidCastException to be thrown.
             foreach (int x in mylist)
             {
                 /* fix the error by adding a conditional here to check the type of x
