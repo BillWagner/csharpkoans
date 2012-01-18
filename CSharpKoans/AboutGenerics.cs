@@ -83,7 +83,7 @@ namespace CSharpKoans
 
         public class Cat : Animal
         {
-            public string Talk()
+            public override string Talk()
             {
                 return "Meow";
             }
@@ -92,7 +92,7 @@ namespace CSharpKoans
 
         public class Dog : Animal
         {
-            public string Talk()
+            public override string Talk()
             {
                 return "Woof";
             }

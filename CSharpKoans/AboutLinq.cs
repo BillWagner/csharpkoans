@@ -95,7 +95,6 @@ namespace CSharpKoans
             /* calling ToList executes the statement */
             var aSelectStatementExecuted = aSelectStatement.ToList();
 
-
             Assert.AreEqual(count, "Fill me in", "How many times was CountMe called now?");
         
         }
@@ -114,6 +113,10 @@ namespace CSharpKoans
            Assert.AreEqual(count, "Fill me in", "How many times was CountMe called?");
 
         }   
+
+        // count on IEnumerable enumerates twice.
+        // count on List enumerates once,.
+        // Any on IEnumerable only checks the beginning of the list.
 
   
 
