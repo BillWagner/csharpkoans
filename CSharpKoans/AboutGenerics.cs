@@ -225,7 +225,23 @@ namespace CSharpKoans
                 
                 return null;
             }
+            public IEnumerable<T> Sort(IComparer<T> comparer)
+            {
+
+                return null;
+
+            }
         }
+
+        public class LengthComparer : IComparer<string>
+        {
+            public int Compare(string x, string y)
+            {
+                throw new NotImplementedException();
+            }
+        }
+        
+
 
         [Koan]
         public void ConstraintsOnGenericClassesPreventUnintendedUses()
@@ -234,12 +250,17 @@ namespace CSharpKoans
              SortedBag<Animal> sortedAnimals = new SortedBag<Animal>();
              * */
 
-            SortableBag<int> numbers = new SortableBag<int>() { 5, 7, 8, 3, 27 };
-            var sortedNumbers = numbers.Sort();
+            SortableBag<string> people = new SortableBag<string>() { "Bob", "Will", "Angie", "Dianne" };
+            var sortedPeople = people.Sort();
 
             /* make the following asserts pass by filling in the Sort function in SortableBag */
-            Assert.AreEqual(sortedNumbers.Count(), numbers.Count());
+            Assert.AreEqual(sortedPeople.Count(), people.Count());
+            Assert.AreEqual("Bill", sortedPeople.First());
 
+
+            /* fill in the LengthComparer class to get this alternate sort working correctly */
+            var sortedByLength = people.Sort(new LengthComparer());
+            Assert.AreEqual("Bob", sortedByLength.First());
         }
     }
 }
