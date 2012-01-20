@@ -59,6 +59,7 @@
     <Compile Include="AboutGenerics.cs" />
     <Compile Include="AboutLambdas.cs" />
     <Compile Include="AboutLinq.cs" />
+    <Compile Include="AboutLinqToSql.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="PathToEnlightenment.cs" />
     <Compile Include="Program.cs" />
@@ -72,6 +73,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="senators_cfm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
