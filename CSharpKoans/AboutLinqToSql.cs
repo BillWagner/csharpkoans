@@ -53,17 +53,20 @@ namespace CSharpKoans
              hint: select new Senator() */
             var senatorObjects = new List<Senator>();
 
-            Assert.AreEqual("", senatorObjects.Last().LastName)
+            Assert.AreEqual("", senatorObjects.Last().LastName);
 
-            /* modify this query to only select the democrats (party = D) */
-            var democrats = from s in senators
+            /* query the senators (in their object form) to select only the democrats (party = D) */
+            var democrats = from s in senatorObjects
+                            // add a where clause here
                             select s;
 
             Assert.AreEqual(50, democrats.Count());
 
 
             /* write a query to return the names of the republicans in alphabetical order */
-            // var republicans = null;
+            var orderedRepubs = from s in senatorObjects
+                                // write the correct query here
+                                select s;
 
         
         }
