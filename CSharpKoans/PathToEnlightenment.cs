@@ -17,7 +17,7 @@ namespace CSharpKoans
               //  yield return new AboutGenerics();
               //  yield return new AboutLambdas();
               //  yield return new AboutLinq();
-                yield return new AboutLinqToSql();
+                yield return new AboutLinqToXml();
               
             }
         }

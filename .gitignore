@@ -4,3 +4,4 @@ CSharpKoans.Core/obj
 CSharpKoans.Test/bin
 CSharpKoans.Test/obj
 *.suo
+*.user

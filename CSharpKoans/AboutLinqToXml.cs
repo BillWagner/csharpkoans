@@ -10,7 +10,7 @@ using NUnit.Framework;
 namespace CSharpKoans
 {
     
-    public class AboutLinqToSql :KoanContainer
+    public class AboutLinqToXml :KoanContainer
     {
         XDocument document = XDocument.Load(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "senators_cfm.xml"));
 
