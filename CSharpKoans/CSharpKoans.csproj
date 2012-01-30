@@ -59,7 +59,7 @@
     <Compile Include="AboutGenerics.cs" />
     <Compile Include="AboutLambdas.cs" />
     <Compile Include="AboutLinq.cs" />
-    <Compile Include="AboutLinqToSql.cs" />
+    <Compile Include="AboutLinqToXml.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="PathToEnlightenment.cs" />
     <Compile Include="Program.cs" />
@@ -75,6 +75,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="nutrition.xml" />
     <Content Include="senators_cfm.xml">
       <SubType>Designer</SubType>
     </Content>
