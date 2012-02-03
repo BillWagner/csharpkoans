@@ -54,6 +54,12 @@ namespace CSharpKoans
 
         }
 
+
+       /* Do you wonder how to pronounce the => token? 
+       * If the lambda expression is a predicate, expressing some condition:
+       * c => c.State == "MI" then the => can be spoken as "such that".  */
+
+
         [Koan]
         public void FuncTypesAreTypeSafeShorthandForBuildingDelegateTypes()
         {
@@ -101,6 +107,7 @@ namespace CSharpKoans
             Assert.AreEqual(3, largeNumbers);
         }
 
+      
 
         [Koan]
         public void LambdaExpressionsCanAcceptMultipleParameters()
@@ -117,10 +124,48 @@ namespace CSharpKoans
         }
 
         // TODO:  Lambdas can declare parameter types.
-        // TODO: lambdas can contain multiple statements.
+
+        [Koan]
+        public void LambdasCanDeclareParameterTypes()
+        {
+            double[] doubles = {1.1, 2.2, 3.3};
+
+            /* you can declare the argument type directly in your lambda for clarity */
+            IEnumerable<double> plusOne = doubles.Select((double x) => x + 1);
+
+            /* but if you don't, the compiler will infer the types */
+            var implicitPlusOne = doubles; // add an implicitly typed lambda (with no types on arguments)
+
+            CollectionAssert.AreEquivalent(plusOne, implicitPlusOne);
+        }
 
 
-    /* see more lambdas in the next file: AboutLinq! */
+
+         /*You can write a more complicated lambda expression using statements, enclosing the statements in braces. 
+          * If you use this syntax, you must use the return statement, unless the lambda returns void.*/
+
+        [Koan]
+        public void LambdasCanContainMultipleStatements()
+        {
+
+            int[] numbers = { 1, 9, 7, 3, 27,6,0, 8, 5, 13, };
+
+
+            /* write a single lambda that allows us to filter all numbers less than or equal to three or greater than 8 */
+            var someNumbers = numbers.Where(
+                    x =>
+                    {
+                        return true;
+                        // write the lambda here
+
+                    }
+                ) ;
+
+            CollectionAssert.AreEquivalent(new int[] { 1, 9, 3, 27, 9, 13 }, someNumbers);
+        }
+
+
+        /* see more lambdas in use in the next file: AboutLinq! */
     }
 
 

@@ -129,7 +129,7 @@ namespace CSharpKoans
         {
             var contactInfo = senatorsDoc.Root;
 
-            /* write a LINQ query to put the senator xElements into Senator objects 
+            /* write a LINQ query to generate a list of Senator objects  from the senator document
              hint: select new Senator() */
             var senatorObjects = new List<Senator>();
 
@@ -170,9 +170,11 @@ namespace CSharpKoans
         public void YouCanMakeComplexQueriesIntoXmlFilesWithLinq()
         {
 
-            var foods = nutritionDoc.Root;
+            var root = nutritionDoc.Root;
 
-
+            /* Write a query to capture the data in the xml document as an enumerable of type Food. 
+             * You will need to create the Food class first */
+            IEnumerable<Food> food = null;
         
         }
     }
