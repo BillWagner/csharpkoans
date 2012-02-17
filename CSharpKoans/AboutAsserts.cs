@@ -36,7 +36,7 @@ namespace CSharpKoans
         {
             var expected_value = 1 + 1;
             var actual_value = __;
-            //Helpers.__;
+         
 
             Assert.AreEqual(expected_value, actual_value);
         }
