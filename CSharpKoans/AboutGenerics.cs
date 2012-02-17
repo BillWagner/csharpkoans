@@ -25,8 +25,8 @@ namespace CSharpKoans
             mylist.Add(7);
             mylist.Add("srtsolutions");
 
-            /* there's no type safety for elements in an ArrayList: since we have to cast on retrieval, this compiles, but throws an exception at runtime */
-            mylist.Insert(3, "a2");
+            /* there's no type safety for elements in an ArrayList: since ArrayList is always of objects we have to cast on retrieval, this compiles */
+            mylist.Insert(1, "a2");
 
             int t = 0;
             // This causes an InvalidCastException to be thrown.
@@ -35,13 +35,14 @@ namespace CSharpKoans
                 /* fix the error by adding a conditional here to check the type of x
                 * hint:  "srt".GetType()== typeof(string)
                  */
-                t += x;
+             
+                 t += x;
             }
 
-           Assert.IsInstanceOf<int>((int)mylist[3]);
+           Assert.IsInstanceOf<int>(mylist[0]);
 
             /* fix this statement so that it runs and makes sense */
-           Assert.IsInstanceOf<FILLMEIN>(mylist[3]);
+           Assert.IsInstanceOf<FILLMEIN>(mylist[1]);
         }
      
         // use a list of a specific type, allows you to add objects of child ype
@@ -54,17 +55,16 @@ namespace CSharpKoans
             myList.Add(7);
             myList.Add(3);
 
-            //myList.Add("srtsolutions"); compile-time error
+           // myList.Add("srtsolutions"); //compile-time error
 
             int t = 0;
-            /* a TestDelegate is just a delegate.  See "AboutLambdas.cs" */
-            TestDelegate addUpValuesInMyList = () =>
-                {
-                    /* write the function that will add up the values.  function is called below */
-                };
-            
-            /* add up all of the values in myList */
-            Assert.DoesNotThrow(addUpValuesInMyList);
+            foreach (var x in myList)
+            {
+                
+                /* write a function to add up all of the values in myList */
+            }
+           
+          
             Assert.AreEqual(10, t);
 
             
@@ -110,7 +110,7 @@ namespace CSharpKoans
             animals.Add(new Cat());
 
             /* but what type are the elements? */
-            Assert.IsInstanceOf<FILLMEIN>(animals.First());
+            Assert.IsInstanceOf<object>(animals.First());
 
             /* Each Animal has the appropriate behavior based on its child class, though! */
             Assert.AreEqual("what do I say?", animals.First().Talk());
@@ -127,7 +127,7 @@ namespace CSharpKoans
             private IList<string> pages = new List<string> { "properties", "generics", "lambdas", "linq","constructors", "indexers" };
             public string TurnToPage(int page)
             {
-                if(page<0) return "This book is dedicated to my true love: Anders Hejlsberg.";
+                if(page<0) return "This book is dedicated to Anders Hejlsberg.";
                 if (page < 6 ) return pages[page];
                 return "The End";
             }

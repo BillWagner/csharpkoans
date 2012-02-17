@@ -22,8 +22,8 @@ namespace CSharpKoans
             // This should be true
              Assert.IsTrue(false);
         }
-        // Enlightenment may be more easily achieved with appropriate   messages. 
 
+        // Enlightenment may be more easily achieved with appropriate  messages. 
         [Koan]
         public void AssertWithMessage()
         { 
