@@ -167,41 +167,42 @@ namespace CSharpKoans
             Assert.AreEqual(___, readingMaterial[2].TurnToPage(1));
         }
 
-
-
-        public class Bag<T> : IEnumerable<T>
+   
+        /* a bag is a multiset: each item can occur more than once */
+        public class Bag<T> 
         {
-            protected List<T> storage = new List<T>();
+            protected Dictionary<T, int> storage = new Dictionary<T, int>();
 
             public void Add(T item)
             {
-                storage.Add(item);
-            }
-
-
-            public T this[int index]
-            {
-                get
+                if (storage.ContainsKey(item))
                 {
-                    return storage[index];
+                    storage[item] += 1;
                 }
-                set
+                else
                 {
-                    storage[index] = value;
+                    storage[item] = 1;
+                }
+
+               
+            }
+
+            public void AddRange(IEnumerable<T> items)
+            {
+                foreach (T item in items)
+                {
+                    Add(item);
                 }
             }
 
-            /* from the IEnumerable interface */
-            public IEnumerator<T> GetEnumerator()
+            public int Count()
             {
-                return storage.GetEnumerator();
-
+                return storage.Count;
             }
 
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                return GetEnumerator();
-            }
+            /* you'll add the Includes method here... it behaves like Contains */
+
+
         }
         // finally: use a generic Collection<T>
         [Koan]
@@ -256,7 +257,8 @@ namespace CSharpKoans
              SortedBag<Animal> sortedAnimals = new SortedBag<Animal>();
              * */
 
-            SortableBag<string> people = new SortableBag<string>() { "Bob", "Will", "Angie", "Dianne" };
+            SortableBag<string> people = new SortableBag<string>();
+            people.AddRange(new List<string>{ "Bob", "Will", "Angie", "Dianne" });
             var sortedPeople = people.Sort();
 
             /* make the following asserts pass by filling in the Sort function in SortableBag */
