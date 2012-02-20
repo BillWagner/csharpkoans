@@ -11,7 +11,6 @@ namespace CSharpKoans
     {
    
 
-        /* linq stands for "language integrated query" */
         [Koan]
         public void LINQQueriesLookKindaLikeSQL()
         {
@@ -225,17 +224,28 @@ namespace CSharpKoans
         }
 
         [Koan]
-        public void AggregateCreatesACommaSeparatedStringFromAListOfStrings()
+        public void OrderbySortsUsingMultipleFieldsInTheOutputSequence()
         {
-            /* get just the titles of our books */
-            var titles = Library.Books.Select(b => b.Title);
+            var defaultOrder = from b in Library.Books
+                               select b.Title;
 
-            Assert.AreEqual(__, titles.Last());
+            Assert.AreEqual("Lolita", defaultOrder.First());
 
-            /* replace the lambda inside our aggregate to create a comma-separated list of all of the titles */
-            string commaSeparated =  titles.Aggregate( (t1,t2)=> __);
-            Assert.AreEqual("Lolita, Slaughterhouse-Five, The White Tiger, Anna Karenina, ", commaSeparated);
-        
+            var byYear = from b in Library.Books
+                         orderby b.PublicationYear, b.Author
+                         select b.Title;
+            Assert.AreEqual("Fill me in", byYear.First());
+
+        }
+
+        [Koan]
+        public void LINQCanCombineSequenceElements()
+        {
+            // hint:  Aggregate() method builds a single result from a sequence
+            var titles = "use linq to build a string that is the comma separated list of all the titles in the library";
+
+            // build the list of titles using a LINQ query
+            Assert.AreEqual("Lolita, Slaughterhouse-Five, The White Tiger, Anna Karenina", titles);
         }
 
         /* this is a utility function for the query-syntax linq statements.  do not modify */
