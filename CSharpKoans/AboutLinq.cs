@@ -20,14 +20,16 @@ namespace CSharpKoans
 
         public Library Library = new Library();
 
+        /* linq stands for "language integrated query" */
         [Koan]
         public void LINQQueriesLookKindaLikeSQL()
         {
-
+            /* linq query syntax */
             var numbers = new List<int> { 1, 2, 3, 4, 5 };
             IEnumerable<int> evens = from n in numbers
                                      where n % 2 == 0
                                      select n;
+            /* n is the range variable */
 
             Assert.AreEqual(__, evens.Count());
 
@@ -43,7 +45,7 @@ namespace CSharpKoans
         {
             var numbers = new List<int> { 1, 2, 3, 4, 5 };
 
-            /* instead of the function __(), put in the correct delegate of form n=> fn(n) */
+            /* instead of the function n=>true, put in the correct delegate of form n=> fn(n) */
             IEnumerable<int> evens = numbers.Where(n => true /*change this lambda  */).Select(n => n);
             Assert.AreEqual(2, evens.Count());
 
@@ -53,13 +55,13 @@ namespace CSharpKoans
             Assert.AreEqual(2, noSelectEvens.Count());
         }
 
-       // [Koan]
+        [Koan]
         public void UseTheEnumerableClasstoCreateSequences()
         {
             IEnumerable<int> integers = Enumerable.Range(0, 10);
 
             /* what does this put into anArray? */
-            int[] anArray = integers. Select(i=>i*i).ToArray();
+            int[] anArray = integers.Select(i => i*i).ToArray();
 
             /* fill in true or false */
             Assert.AreEqual(__, anArray.Contains(1));

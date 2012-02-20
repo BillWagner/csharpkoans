@@ -174,7 +174,7 @@ namespace CSharpKoans
 
             /* Write a query to capture the data in the xml document as an enumerable of type Food. 
              * You will need to create the Food class first */
-            IEnumerable<Food> food = null;
+         //   IEnumerable<Food> food = null;
         
         }
     }

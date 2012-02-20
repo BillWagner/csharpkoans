@@ -23,10 +23,11 @@ namespace CSharpKoans
             /* you can add all sorts of types of objects to an ArrayList */
             ArrayList mylist = new ArrayList();
             mylist.Add(7);
+            mylist.Add(3);
             mylist.Add("srtsolutions");
 
             /* there's no type safety for elements in an ArrayList: since ArrayList is always of objects we have to cast on retrieval, this compiles */
-            mylist.Insert(1, "a2");
+            mylist.Insert(2, "a2");
 
             int t = 0;
             // This causes an InvalidCastException to be thrown.
@@ -35,21 +36,25 @@ namespace CSharpKoans
                 /* fix the error by adding a conditional here to check the type of x
                 * hint:  "srt".GetType()== typeof(string)
                  */
-             
-                 t += x;
+                    t += x;
+                
             }
 
            Assert.IsInstanceOf<int>(mylist[0]);
 
             /* fix this statement so that it runs and makes sense */
-           Assert.IsInstanceOf<FILLMEIN>(mylist[1]);
+           Assert.IsInstanceOf<FILLMEIN>(mylist[2]);
         }
      
-        // use a list of a specific type, allows you to add objects of child ype
 
         [Koan]
         public void WithAGenericListTypeSafetyIsEnsured()
         {
+            /* A Generic list is a List<T> ("list of T") where T is any C# type.  Generics are similar in concept to C++ templates
+             *  They allow you to create a data structure without committing to a type, and reuse algorithms and code 
+             */
+
+
             /* by specifying the generic type, you can create a collection that is type-safe at compile-time.*/
             List<int> myList = new List<int>();
             myList.Add(7);
@@ -60,7 +65,7 @@ namespace CSharpKoans
             int t = 0;
             foreach (var x in myList)
             {
-                
+               
                 /* write a function to add up all of the values in myList */
             }
            
@@ -113,13 +118,13 @@ namespace CSharpKoans
             Assert.IsInstanceOf<object>(animals.First());
 
             /* Each Animal has the appropriate behavior based on its child class, though! */
-            Assert.AreEqual("what do I say?", animals.First().Talk());
-            Assert.AreEqual("third animal says...", animals[2].Talk());
+            Assert.AreEqual(___, animals.First().Talk());
+            Assert.AreEqual(___, animals[2].Talk());
         }
 
         public interface IReadable
         {
-        string TurnToPage(int page);
+            string TurnToPage(int page);
         
         }
         public class Book : IReadable
@@ -153,7 +158,7 @@ namespace CSharpKoans
         public void AGenericDataStructureCanContainInterfaceImplementors()
         {
 
-            IList<IReadable> readingMaterial = new List<IReadable>();
+            List<IReadable> readingMaterial = new List<IReadable>();
             readingMaterial.Add(new Book());
             readingMaterial.Add(new Blog());
             readingMaterial.Add(new Magazine());
@@ -172,6 +177,7 @@ namespace CSharpKoans
             {
                 storage.Add(item);
             }
+
 
             public T this[int index]
             {
@@ -204,17 +210,17 @@ namespace CSharpKoans
            Bag<string> myStrings = new Bag<string>();
            myStrings.Add("c#");
 
-          // myStrings.Add(6); won't compile
+          // myStrings.Add(new Book()); //won't compile
 
-           Assert.Fail("Comment out the assert below and make it pass by writing a generic Contains method in the Bag class");
-           //Assert.True(myStrings.Contains("c#"));
+           Assert.Fail("Comment me out, and un-comment the assert below and make it pass by writing a generic Includes method in the Bag class");
+          // Assert.True(myStrings.Includes("c#"));
 
            var cat = new Cat { Name = "behemoth" };
            Bag<Animal> animals = new Bag<Animal>();
            animals.Add(cat);
 
-           Assert.Fail("Make Contains work for Animals, too. Uncomment the assertion below. Hint: the contains method on a collection uses the Equals method on the object.");
-            //Assert.True(animals.Contains(cat));
+           Assert.Fail("Make Includes work for Animals, too. Uncomment the assertion below. Hint: the contains method on a collection uses the Equals method on the object.");
+            //Assert.True(animals.Includes(cat));
 
         }
 
@@ -255,7 +261,7 @@ namespace CSharpKoans
 
             /* make the following asserts pass by filling in the Sort function in SortableBag */
             Assert.AreEqual(sortedPeople.Count(), people.Count());
-            Assert.AreEqual("Bill", sortedPeople.First());
+            Assert.AreEqual("Angie", sortedPeople.First());
 
 
             /* fill in the LengthComparer class to get this alternate sort working correctly */
