@@ -196,19 +196,16 @@ namespace CSharpKoans
                 }
             }
 
-            public int Count()
+            public int CountDistinct()
             {
                 return storage.Count;
             }
 
-            /* you'll add the Includes method here... it behaves like Contains */
+            /* you'll add the Contains method here... */
 
 
             /* you'll add the Remove method here... */
-            public bool Contains(T obj)
-            {
-                return storage.Keys.Contains(obj);
-            }
+       
 
         }
 
@@ -220,8 +217,8 @@ namespace CSharpKoans
 
             // myStrings.Add(new Book()); //won't compile
 
-            // Assert.Fail("Comment me out, and un-comment the assert below and make it pass by writing a generic Contains method in the Bag class");
-            Assert.True(myStrings.Contains("c#"));
+             Assert.Fail("Comment me out, and un-comment the assert below and make it pass by writing a generic Contains method in the Bag class");
+            //Assert.True(myStrings.Contains("c#"));
 
             var cat = new Cat { Name = "vega" };
             Bag<Animal> animals = new Bag<Animal>();
@@ -233,16 +230,16 @@ namespace CSharpKoans
             Assert.Fail("Add a Remove method to Animal");
             animals.Add(cat); // adding it again
 
-            /* uncomment the line below once you've implemented the Remove method...*/
+            /* uncomment the lines below once you've implemented the Remove method...*/
             //animals.Remove(cat); /*removing it once */
 
-            Assert.IsTrue(animals.Contains(cat));
+            //Assert.IsTrue(animals.Contains(cat));
             //animals.Remove(cat);
 
-            Assert.IsFalse(animals.Contains(cat));
+            //Assert.IsFalse(animals.Contains(cat));
 
 
-            /* notice that the methods we've added to our Bag<T> have nothing to do with animals and are generic.  Now we can reuse them for any data type! */
+            /* notice that the methods we've added to our Bag<T> have nothing to do with animals.  Now we can reuse them for any data type! */
         }
 
         public class SortableBag<T> : Bag<T> where T : System.IComparable<T>
@@ -282,7 +279,7 @@ namespace CSharpKoans
             var sortedPeople = people.Sort();
 
             /* make the following asserts pass by filling in the Sort function in SortableBag */
-            Assert.AreEqual(sortedPeople.Count(), people.Count());
+            Assert.AreEqual(sortedPeople.Count(), people.CountDistinct());
             Assert.AreEqual("Angie", sortedPeople.First());
 
 
