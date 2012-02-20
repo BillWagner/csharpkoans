@@ -12,8 +12,8 @@ namespace CSharpKoans
 
     public class AboutGenerics : KoanContainer
     {
-   
 
+ 
     
         [Koan]
         public void UsingArrayListMeansNoTypeSafety()
@@ -81,6 +81,8 @@ namespace CSharpKoans
             {
             return "hello";
             }
+
+  
           
         }
 
@@ -91,6 +93,7 @@ namespace CSharpKoans
                 return "Meow";
             }
 
+  
         }
 
         public class Dog : Animal
@@ -201,26 +204,45 @@ namespace CSharpKoans
             /* you'll add the Includes method here... it behaves like Contains */
 
 
+            /* you'll add the Remove method here... */
+            public bool Contains(T obj)
+            {
+                return storage.Keys.Contains(obj);
+            }
+
         }
-        // finally: use a generic Collection<T>
+
         [Koan]
         public void UsingSpecificInstanceOfGenericCollectionGivesYouTypeSafety()
         {
-           Bag<string> myStrings = new Bag<string>();
-           myStrings.Add("c#");
+            Bag<string> myStrings = new Bag<string>();
+            myStrings.Add("c#");
 
-          // myStrings.Add(new Book()); //won't compile
+            // myStrings.Add(new Book()); //won't compile
 
-           Assert.Fail("Comment me out, and un-comment the assert below and make it pass by writing a generic Contains method in the Bag class");
-          // Assert.True(myStrings.Contains("c#"));
+            // Assert.Fail("Comment me out, and un-comment the assert below and make it pass by writing a generic Contains method in the Bag class");
+            Assert.True(myStrings.Contains("c#"));
 
-           var cat = new Cat { Name = "behemoth" };
-           Bag<Animal> animals = new Bag<Animal>();
-           animals.Add(cat);
+            var cat = new Cat { Name = "vega" };
+            Bag<Animal> animals = new Bag<Animal>();
+            animals.Add(cat);
 
-           Assert.Fail("Make Contains work for Animals, too. Uncomment the assertion below. Hint: the contains method on a collection uses the Equals method on the object.");
+            /* uncomment this below once you have written a Contains method */
             //Assert.True(animals.Contains(cat));
 
+            Assert.Fail("Add a Remove method to Animal");
+            animals.Add(cat); // adding it again
+
+            /* uncomment the line below once you've implemented the Remove method...*/
+            //animals.Remove(cat); /*removing it once */
+
+            Assert.IsTrue(animals.Contains(cat));
+            //animals.Remove(cat);
+
+            Assert.IsFalse(animals.Contains(cat));
+
+
+            /* notice that the methods we've added to our Bag<T> have nothing to do with animals and are generic.  Now we can reuse them for any data type! */
         }
 
         public class SortableBag<T> : Bag<T> where T : System.IComparable<T>
