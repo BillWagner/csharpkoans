@@ -9,16 +9,7 @@ namespace CSharpKoans
 {
     public class AboutLinq : KoanContainer
     {
-        public class FILLMEIN
-        { }
-        private bool ___()
-        {
-            return true;
-        }
-
-        const string __ = "FILL ME IN";
-
-        public Library Library = new Library();
+   
 
         /* linq stands for "language integrated query" */
         [Koan]
@@ -254,6 +245,18 @@ namespace CSharpKoans
             count++;
             return item;
         }
-  
+
+
+        public class FILLMEIN
+        { }
+        private bool ___()
+        {
+            return true;
+        }
+
+        const string __ = "FILL ME IN";
+
+        public Library Library = new Library();
+
     }
 }

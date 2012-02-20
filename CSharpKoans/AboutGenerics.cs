@@ -12,9 +12,7 @@ namespace CSharpKoans
 
     public class AboutGenerics : KoanContainer
     {
-        public class FILLMEIN
-        { }
-        const int ___ = int.MaxValue;
+   
 
     
         [Koan]
@@ -168,7 +166,7 @@ namespace CSharpKoans
         }
 
    
-        /* a bag is a multiset: each item can occur more than once */
+        /* a bag is a multiset: each item can occur more than once, and we keep track of the duplicates */
         public class Bag<T> 
         {
             protected Dictionary<T, int> storage = new Dictionary<T, int>();
@@ -213,15 +211,15 @@ namespace CSharpKoans
 
           // myStrings.Add(new Book()); //won't compile
 
-           Assert.Fail("Comment me out, and un-comment the assert below and make it pass by writing a generic Includes method in the Bag class");
-          // Assert.True(myStrings.Includes("c#"));
+           Assert.Fail("Comment me out, and un-comment the assert below and make it pass by writing a generic Contains method in the Bag class");
+          // Assert.True(myStrings.Contains("c#"));
 
            var cat = new Cat { Name = "behemoth" };
            Bag<Animal> animals = new Bag<Animal>();
            animals.Add(cat);
 
-           Assert.Fail("Make Includes work for Animals, too. Uncomment the assertion below. Hint: the contains method on a collection uses the Equals method on the object.");
-            //Assert.True(animals.Includes(cat));
+           Assert.Fail("Make Contains work for Animals, too. Uncomment the assertion below. Hint: the contains method on a collection uses the Equals method on the object.");
+            //Assert.True(animals.Contains(cat));
 
         }
 
@@ -270,5 +268,10 @@ namespace CSharpKoans
             var sortedByLength = people.Sort(new LengthComparer());
             Assert.AreEqual("Bob", sortedByLength.First());
         }
+
+
+        public class FILLMEIN
+        { }
+        const int ___ = int.MaxValue;
     }
 }

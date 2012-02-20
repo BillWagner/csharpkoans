@@ -12,7 +12,7 @@ namespace CSharpKoans
   
     public class AboutAsserts : KoanContainer
     {
-         const string __ = "FILL ME IN";
+
 
         // We shall contemplate truth by testing reality, via asserts.
 
@@ -46,5 +46,7 @@ namespace CSharpKoans
         {
             Assert.AreEqual(1 + 1, __);
         }
+
+        const string __ = "FILL ME IN";
     }
 }
