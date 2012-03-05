@@ -60,6 +60,7 @@
     <Compile Include="AboutLambdas.cs" />
     <Compile Include="AboutLinq.cs" />
     <Compile Include="AboutLinqToXml.cs" />
+    <Compile Include="AboutNullAndTypes.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="PathToEnlightenment.cs" />
     <Compile Include="Program.cs" />
