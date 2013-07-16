@@ -20,9 +20,6 @@ namespace CSharpKoans
             MyClass myClass = null;
             myClass.AMethod();
 
-            // we don't ever get here because an Exception is thrown.  
-            Assert.Pass();
-
             // once we initialize a reference type we can call methods on it
            // change code above to initialize MyClass
 
