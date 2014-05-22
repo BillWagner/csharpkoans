@@ -161,7 +161,7 @@ namespace CSharpKoans
                     }
                 ) ;
 
-            CollectionAssert.AreEquivalent(new int[] { 1, 9, 3, 27, 9, 13 }, someNumbers);
+            CollectionAssert.AreEquivalent(new int[] { 1, 9, 3, 27, 0, 13 }, someNumbers);
         }
 
 
