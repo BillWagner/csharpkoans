@@ -62,11 +62,11 @@ namespace CSharpKoans
         [Flags]
         public enum Styles
         {
-            Plain,
-            Rounded,
-            Squared,
-            Raised,
-            Sunken
+            Plain = 0,
+            Rounded = 1,
+            Squared = 2,
+            Raised = 4,
+            Sunken = 8
         }
 
         [Koan]
