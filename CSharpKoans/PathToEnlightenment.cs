@@ -15,6 +15,7 @@ namespace CSharpKoans
             {
                 yield return new AboutAsserts();
                 yield return new AboutNumericTypes();
+                yield return new AboutEnums();
                 yield return new AboutNullAndTypes();
                 yield return new AboutGenerics();
                 yield return new AboutLambdas();
