@@ -56,13 +56,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutAsserts.cs" />
+    <Compile Include="AboutClasses.cs" />
     <Compile Include="AboutEnums.cs" />
     <Compile Include="AboutGenerics.cs" />
+    <Compile Include="AboutInterfaces.cs" />
     <Compile Include="AboutLambdas.cs" />
     <Compile Include="AboutLinq.cs" />
     <Compile Include="AboutLinqToXml.cs" />
     <Compile Include="AboutNullAndTypes.cs" />
     <Compile Include="AboutNumericTypes.cs" />
+    <Compile Include="AboutStructs.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="PathToEnlightenment.cs" />
     <Compile Include="Program.cs" />

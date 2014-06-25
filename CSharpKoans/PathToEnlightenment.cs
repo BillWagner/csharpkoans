@@ -17,11 +17,13 @@ namespace CSharpKoans
                 yield return new AboutNumericTypes();
                 yield return new AboutEnums();
                 yield return new AboutNullAndTypes();
+                yield return new AboutStructs();
+                yield return new AboutClasses();
+                yield return new AboutInterfaces();
                 yield return new AboutGenerics();
                 yield return new AboutLambdas();
                 yield return new AboutLinq();
-                yield return new AboutLinqToXml();
-              
+                yield return new AboutLinqToXml(); 
             }
         }
 
