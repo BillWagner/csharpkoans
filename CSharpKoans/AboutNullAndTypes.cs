@@ -12,7 +12,8 @@ namespace CSharpKoans
         string FILL_ME_IN = "FILL ME IN";
 
         /* The null keyword is a literal that represents a null reference, one that does not refer to any object. 
-         * null is the default value of reference-type variables. Ordinary value types cannot be null. */
+         * null is the default value of reference-type variables. Ordinary value types cannot be null. 
+         */
 
         [Koan]
         public void MethodsCannotBeCalledOnNull()
@@ -21,9 +22,7 @@ namespace CSharpKoans
             myClass.AMethod();
 
             // once we initialize a reference type we can call methods on it
-           // change code above to initialize MyClass
-
-         
+            // change code above to initialize MyClass
         }
 
         [Koan]
@@ -31,7 +30,6 @@ namespace CSharpKoans
         {
             Assert.AreEqual(FILL_ME_IN, null==null);
         }
-
 
         [Koan]
         public void NullStringIsNotTheSameAsEmptyString()
@@ -52,17 +50,15 @@ namespace CSharpKoans
 
             bool b = (s == t);
             Assert.AreEqual(FILL_ME_IN, b);
-
         }
 
         [Koan]
         public void ValueTypesBehaveDifferentlyFromReferenceTypes()
         {
-  
-
-             /*Variables that are based on value types directly contain values. Assigning one value type variable 
-              * to another copies the contained value. This differs from the assignment of reference type variables,
-              * which copies a reference to the object but not the object itself.*/
+            /*Variables that are based on value types directly contain values. Assigning one value type variable 
+            * to another copies the contained value. This differs from the assignment of reference type variables,
+            * which copies a reference to the object but not the object itself.
+            */
 
             // A value type cannot be null
             // int i = null; // Compiler error!
@@ -77,23 +73,18 @@ namespace CSharpKoans
         [Koan]
         public void NullableTypes()
         {
-         
-            /* to make a value type null, declare it as nullable */
+            // to make a value type null, declare it as nullable
             int? nullableInt = null;
             Assert.AreEqual(FILL_ME_IN, nullableInt.HasValue);
 
             nullableInt = 0;
             Assert.AreEqual(FILL_ME_IN, nullableInt.HasValue);
 
-
             Assert.AreEqual(FILL_ME_IN, nullableInt.Value);
-
         }
-       
     }
     public class MyClass
     {
-        public void AMethod()
-        { }
+        public void AMethod() { }
     }
 }

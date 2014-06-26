@@ -41,11 +41,10 @@ namespace CSharpKoans
         {
             var Joker = new Megalomaniac();
 
-            // Uncomment the next line and make the asert pass:
+            // Uncomment the next line and write the method to make the assert pass:
             // Joker.MakePlan("Destroy Batman");
 
             Assert.AreEqual("Destroy Batman", Joker.Mission);
-
         }
 
         [Koan]
@@ -53,12 +52,11 @@ namespace CSharpKoans
         {
             var Joker = new Megalomaniac();
 
-            // Uncomment the next line and make the asert pass:
+            // Uncomment the next line and write the method to make the asserts pass:
             // Joker.MakePlan("Destroy Batman");
 
             Assert.AreEqual("Destroy Batman", Joker.Mission);
             Assert.AreEqual("Steal the batmobile", Joker.RetrieveNextStepOfPlan());
-
         }
 
         [Koan]
@@ -66,7 +64,7 @@ namespace CSharpKoans
         {
             var Joker = new Megalomaniac();
 
-            // Uncomment the next line and make the asert pass:
+            // Uncomment the next line and write the method to make the asserts pass:
             // Joker.MakePlan("Destroy Batman");
 
             Assert.AreEqual("Destroy Batman", Joker.Mission);
@@ -77,9 +75,6 @@ namespace CSharpKoans
             Assert.AreEqual("Convince Batman he harmed Catwoman", Joker.RetrieveNextStepOfPlan());
             Assert.AreEqual("Get Batman to reveal his secret identity", Joker.RetrieveNextStepOfPlan());
             Assert.AreEqual("Put Bruce Wayne in Jail", Joker.RetrieveNextStepOfPlan());
-
         }
-
-
     }
 }

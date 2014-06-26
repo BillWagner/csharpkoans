@@ -47,7 +47,6 @@ namespace CSharpKoans
             Assert.AreEqual(FILL_ME_IN, (int)tue);
             Assert.AreEqual(FILL_ME_IN, (int)thur);
             Assert.AreEqual(FILL_ME_IN, (int)sat);
-
         }
 
         [Koan]

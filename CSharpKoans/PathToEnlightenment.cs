@@ -51,7 +51,6 @@ namespace CSharpKoans
                 Console.WriteLine("");
                 Console.WriteLine("");
                 Console.WriteLine("");
-                Console.WriteLine("Press any key to continue...");
                 System.Console.ReadKey();
             }
         }

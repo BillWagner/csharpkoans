@@ -9,8 +9,6 @@ namespace CSharpKoans
 {
     public class AboutLinq : KoanContainer
     {
-   
-
         [Koan]
         public void LINQQueriesLookKindaLikeSQL()
         {
@@ -27,7 +25,6 @@ namespace CSharpKoans
             IEnumerable<int> odds = numbers/* add a query here */;
 
             Assert.AreEqual(FILL_ME_IN, odds.Count());
-
         }
 
         [Koan]
@@ -57,16 +54,11 @@ namespace CSharpKoans
             Assert.AreEqual(FILL_ME_IN, anArray.Contains(1));
             Assert.AreEqual(FILL_ME_IN, anArray.Contains(3));
             Assert.AreEqual(FILL_ME_IN, anArray.Contains(100));
-
-
         }
-
-      
 
         [Koan]
         public void LINQQueriesCanSelectAnything()
         {
-
             var numbers = new List<int> { 1, 2, 3, 4, 5 };
 
             /* instead of the function true, put in the correct function of form n=> fn(n), with return type bool */
@@ -75,8 +67,6 @@ namespace CSharpKoans
         }
 
         /* Linq statements are lazy.  This means that an enumerable evaluates on-demand, rather than up front */
-
-     
         [Koan]
         public void LinqStatementExecutionIsDeferred()
         {
@@ -92,7 +82,6 @@ namespace CSharpKoans
             var aSelectStatementExecuted = aSelectStatement.ToList();
 
             Assert.AreEqual(count, "Fill me in", "How many times was CountMe called now?");
-        
         }
 
         /* using fluent linq syntax below ...*/
@@ -104,11 +93,12 @@ namespace CSharpKoans
 
             Random rand = new Random();
 
-            /* note: we are using a multi-statement function in our select statement.
+            /* 
+             * note: we are using a multi-statement function in our select statement.
              * you normally should not have a side effect in your select lambda .
-           *  If you didn't want to count, you would write this as just:
-           *  Enumerable.Repeat(0, 100000).Select(i=> rand.Next())
-           *  */
+             * If you didn't want to count, you would write this as just:
+             * Enumerable.Repeat(0, 100000).Select(i=> rand.Next())
+             */
             var randomSequence = Enumerable.Repeat(0, 100000).Select<int, int>(i =>
             {
                 counter++;
@@ -130,11 +120,9 @@ namespace CSharpKoans
             Assert.AreEqual(FILL_ME_IN, counter);
         }
 
-
         [Koan]
         public void SomeQueriesForceImmediateExecution()
         {
-
             count = 0;
             var books = from b in Library.Books
                       select CountMe(b);
@@ -143,7 +131,6 @@ namespace CSharpKoans
            var numBooks= books.Count();
            Assert.AreEqual("Fill me in", numBooks, "Just getting the number of books in our library.");
            Assert.AreEqual(count, "Fill me in", "How many times was CountMe called?");
-
         }
 
         [Koan]
@@ -205,9 +192,6 @@ namespace CSharpKoans
             Assert.AreEqual(FILL_ME_IN, counter);
         }
       
-
-      
-
         [Koan]
         public void OrderbyClauseSortsTheOutputSequence()
         {
@@ -220,7 +204,6 @@ namespace CSharpKoans
                          orderby b.PublicationYear
                          select b.Title;
             Assert.AreEqual("Fill me in", byYear.First());
-
         }
 
         [Koan]
@@ -235,7 +218,6 @@ namespace CSharpKoans
                          orderby b.PublicationYear, b.Author
                          select b.Title;
             Assert.AreEqual("Fill me in", byYear.First());
-
         }
 
         [Koan]

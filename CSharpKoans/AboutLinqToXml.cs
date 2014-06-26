@@ -9,13 +9,12 @@ using NUnit.Framework;
 
 namespace CSharpKoans
 {
-    
-    public class AboutLinqToXml :KoanContainer
+    public class AboutLinqToXml : KoanContainer
     {
         XDocument senatorsDoc = XDocument.Load(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "senators_cfm.xml"));
         XDocument nutritionDoc = XDocument.Load(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "nutrition.xml"));
 
-        /* DO NOT CHANGE THESE VALUES. MAKE THE KOANS WORK BY REPLACING FILL_ME_IN OR ARRAY_FILL_ME_IN WITH THE APPROPRIATE CODE */
+        /* DO NOT CHANGE THESE VALUES. MAKE THE KOANS WORK BY REPLACING CLASS_FILL_ME_IN OR ARRAY_FILL_ME_IN WITH THE APPROPRIATE CODE */
         const int FILL_ME_IN = int.MaxValue;
         string[] ARRAY_FILL_ME_IN = new string[] { } ;
 
@@ -26,11 +25,9 @@ namespace CSharpKoans
             public string Website { get; set; }
         }
 
-
-     //   [Koan]
+        [Koan]
         public void LinqToXmlBuildsAnObjectTreeFromTheXmlDocument()
         {
-
             var contactInfo = senatorsDoc.Root;
 
 
@@ -45,10 +42,9 @@ namespace CSharpKoans
 
             /* Descendants are all the children at any level. */
             Assert.AreEqual(FILL_ME_IN, contactInfo.Descendants().Count());
-        
         }
 
-       // [Koan]
+        [Koan]
         public void EachNodeInTheTreeIsAlsoATree()
         {
             var contactInfo = senatorsDoc.Root;
@@ -56,7 +52,7 @@ namespace CSharpKoans
             var senators = from s in contactInfo.Elements()
                            select s;
 
-          //  Assert.AreEqual(FILL_ME_IN, senators.Count());
+            //  Assert.AreEqual(CLASS_FILL_ME_IN, senators.Count());
           
 
             var firstSenator = senators.First();
@@ -67,7 +63,7 @@ namespace CSharpKoans
             Assert.AreEqual(FILL_ME_IN, firstSenator.HasElements);
 
             /* ancestors are the opposite of descendants */
-           Assert.AreEqual(FILL_ME_IN, firstSenator.Ancestors().Count());
+            Assert.AreEqual(FILL_ME_IN, firstSenator.Ancestors().Count());
 
             /* Elements() are the direct child nodes of a parent node */
             Assert.AreEqual(FILL_ME_IN, firstSenator.Elements().Count());
@@ -85,16 +81,11 @@ namespace CSharpKoans
             /* Name vs. Value for a node */
             Assert.AreEqual(FILL_ME_IN, lastName.Name.LocalName);
             Assert.AreEqual(FILL_ME_IN, lastName.Value);
-
-      
-          
-     
         }
 
         [Koan]
         public void YouCanUseLinqToQueryElements()
         {
-
             var contactInfo = senatorsDoc.Root;
             var senators = contactInfo.Elements();
             /* OR: from var s contactInfo.Elements select s; */
@@ -104,7 +95,6 @@ namespace CSharpKoans
             var state = from e in firstSenator.Elements()
                         where e.Name == "state"
                         select e.Value;
-
 
             Assert.AreEqual(FILL_ME_IN, state.Count());
             Assert.AreEqual(FILL_ME_IN, state.First());
@@ -120,9 +110,7 @@ namespace CSharpKoans
 
             /* write a line of code that gets the last_name of the third XElement in the "senators" list */
             Assert.AreEqual("Ayotte", nameOfThirdSenator);
-
         }
-
 
         [Koan]
         public void LinqToXmlCreatesObjectsFromXmlElements()
@@ -155,27 +143,23 @@ namespace CSharpKoans
             var state = "Replace this string with a LINQ to XML Query";
 
             Assert.AreEqual(state, "CT");
-
-
         }
-
 
         public class Food
         { 
             /* you will need to fill this in */
         }
 
-
         [Koan]
         public void YouCanMakeComplexQueriesIntoXmlFilesWithLinq()
         {
-
             var root = nutritionDoc.Root;
 
             /* Write a query to capture the data in the xml document as an enumerable of type Food. 
-             * You will need to create the Food class first */
-         //   IEnumerable<Food> food = null;
-        
+             * You will need to create the Food class first 
+             */
+
+            //IEnumerable<Food> food = null;
         }
     }
 }

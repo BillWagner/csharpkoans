@@ -8,13 +8,8 @@ using NUnit.Framework;
 
 namespace CSharpKoans
 {
-
-
     public class AboutGenerics : KoanContainer
     {
-
- 
-    
         [Koan]
         public void UsingArrayListMeansNoTypeSafety()
         {
@@ -41,7 +36,7 @@ namespace CSharpKoans
            Assert.IsInstanceOf<int>(mylist[0]);
 
             /* fix this statement so that it runs and makes sense */
-           Assert.IsInstanceOf<FILL_ME_IN>(mylist[2]);
+           Assert.IsInstanceOf<CLASS_FILL_ME_IN>(mylist[2]);
         }
      
 
@@ -67,12 +62,8 @@ namespace CSharpKoans
                 /* write a function to add up all of the values in myList */
             }
            
-          
             Assert.AreEqual(10, t);
-
-            
         }
-
 
         public class Animal
         {
@@ -81,9 +72,6 @@ namespace CSharpKoans
             {
             return "hello";
             }
-
-  
-          
         }
 
         public class Cat : Animal
@@ -92,8 +80,6 @@ namespace CSharpKoans
             {
                 return "Meow";
             }
-
-  
         }
 
         public class Dog : Animal
@@ -119,15 +105,15 @@ namespace CSharpKoans
             Assert.IsInstanceOf<object>(animals.First());
 
             /* Each Animal has the appropriate behavior based on its child class, though! */
-            Assert.AreEqual(___, animals.First().Talk());
-            Assert.AreEqual(___, animals[2].Talk());
+            Assert.AreEqual(FILL_ME_IN, animals.First().Talk());
+            Assert.AreEqual(FILL_ME_IN, animals[2].Talk());
         }
 
         public interface IReadable
         {
             string TurnToPage(int page);
-        
         }
+
         public class Book : IReadable
         {
             private IList<string> pages = new List<string> { "properties", "generics", "lambdas", "linq","constructors", "indexers" };
@@ -138,6 +124,7 @@ namespace CSharpKoans
                 return "The End";
             }
         }
+
         public class Magazine : IReadable
         {
             public string TurnToPage(int page)
@@ -146,6 +133,7 @@ namespace CSharpKoans
                 else return "content";
             }
         }
+
         public class Blog : IReadable
         {
             public string TurnToPage(int page) 
@@ -164,11 +152,10 @@ namespace CSharpKoans
             readingMaterial.Add(new Blog());
             readingMaterial.Add(new Magazine());
 
-            Assert.AreEqual(___, readingMaterial.First().TurnToPage(1));
-            Assert.AreEqual(___, readingMaterial[2].TurnToPage(1));
+            Assert.AreEqual(FILL_ME_IN, readingMaterial.First().TurnToPage(1));
+            Assert.AreEqual(FILL_ME_IN, readingMaterial[2].TurnToPage(1));
         }
 
-   
         /* a bag is a multiset: each item can occur more than once, and we keep track of the duplicates */
         public class Bag<T> 
         {
@@ -205,8 +192,6 @@ namespace CSharpKoans
 
 
             /* you'll add the Remove method here... */
-       
-
         }
 
         [Koan]
@@ -265,8 +250,6 @@ namespace CSharpKoans
             }
         }
         
-
-
         [Koan]
         public void ConstraintsOnGenericClassesPreventUnintendedUses()
         {
@@ -288,9 +271,7 @@ namespace CSharpKoans
             Assert.AreEqual("Bob", sortedByLength.First());
         }
 
-
-        public class FILL_ME_IN
-        { }
-        const int ___ = int.MaxValue;
+        public class CLASS_FILL_ME_IN { }
+        const int FILL_ME_IN = int.MaxValue;
     }
 }

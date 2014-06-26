@@ -36,8 +36,5 @@ namespace CSharpKoans
             Assert.AreEqual("Holy Code Exercise, Batman! Holy Code Exercise, Batman! Holy Code Exercise, Batman! ", RobinsPhrase);
             Assert.AreEqual("Narf! Narf! Narf!", PinkysPhrase);
         }
-
-        
-
     }
 }

@@ -9,13 +9,9 @@ using NUnit.Framework;
 
 namespace CSharpKoans
 {
-  
     public class AboutAsserts : KoanContainer
     {
-
-
         // We shall contemplate truth by testing reality, via asserts.
-
         [Koan]
         public void AssertTruth()
         {  
@@ -31,6 +27,7 @@ namespace CSharpKoans
             Assert.IsTrue(false, "This should be true -- Please fix this");
             // To understand reality, we must compare our expectations against reality. 
         }
+
         [Koan]
         public void AssertEquality()
         {
@@ -40,6 +37,7 @@ namespace CSharpKoans
 
             Assert.AreEqual(expected_value, actual_value);
         }
+
         // Sometimes we will ask you to fill in the values
         [Koan]
         public void FillInValues()

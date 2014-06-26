@@ -98,7 +98,6 @@ namespace CSharpKoans
 
             // What type is k?
             Assert.AreEqual(typeof(TYPE_FILL_ME_IN), k.GetType());
-
         }
     }
 }

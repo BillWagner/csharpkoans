@@ -14,10 +14,10 @@ namespace CSharpKoans
         KoanDelegate DELEGATE_FILL_ME_IN = null;// n => n;
         BooleanKoanDelegate BOOL_DELEGATE_FILL_ME_IN = null; //= n => false;
       
-
         /*  A lambda expression is an anonymous function that can contain expressions and statements
-         *
-         * (input parameters) => expression
+         *  The lambda expression syntax is as follows:
+         *  
+         * (input parameters) => expression;
          */
 
         delegate int KoanDelegate(int i);
@@ -26,16 +26,15 @@ namespace CSharpKoans
         public void ALambdaCanBeUsedToCreateADelegate()
         {
             /* note the definition of KoanDelegate above! */
-            KoanDelegate timesTwo = n=> n*2;
+            KoanDelegate timesTwo = n => n*2;
             int result = timesTwo(5);
 
             Assert.AreEqual(FILL_ME_IN, result);
 
-            /* replace FILL_ME_IN with code to create a delegate that adds 5 to its argument */
+            /* replace CLASS_FILL_ME_IN with code to create a delegate that adds 5 to its argument */
             KoanDelegate plusFive = DELEGATE_FILL_ME_IN;
             int additionResult = plusFive(3);
             Assert.AreEqual(8, additionResult);
-            
         }
 
         delegate bool BooleanKoanDelegate(string s);
@@ -43,7 +42,6 @@ namespace CSharpKoans
         [Koan]
         public void DelegatesCanHaveVariousArgumentAndReturnTypes()
         {
-
             /* replace BOOLFILLMEIN with a lambda to create a delegate that returns true if the # of chars in the argument is > five, false otherwise */
             BooleanKoanDelegate isLongerThanFive = BOOL_DELEGATE_FILL_ME_IN;
             bool result = isLongerThanFive("srtsolutions");
@@ -51,14 +49,11 @@ namespace CSharpKoans
             bool no = isLongerThanFive("a2");
             Assert.True(result);
             Assert.IsFalse(no);
-
         }
 
-
-       /* Do you wonder how to pronounce the => token? 
+       /* Do you wonder how to pronounce the '=>' token? 
        * If the lambda expression is a predicate, expressing some condition:
        * c => c.State == "MI" then the => can be spoken as "such that".  */
-
 
         [Koan]
         public void FuncTypesAreTypeSafeShorthandForBuildingDelegateTypes()
@@ -83,7 +78,6 @@ namespace CSharpKoans
             /* replace default expression with a lambda that returns true if a number is even */
             IEnumerable<int> evenNumbers = numbers.Where(default(Func<int, bool>));
             Assert.AreEqual(2, evenNumbers.Count());
-        
         }
 
         [Koan]
@@ -107,8 +101,6 @@ namespace CSharpKoans
             Assert.AreEqual(3, largeNumbers);
         }
 
-      
-
         [Koan]
         public void LambdaExpressionsCanAcceptMultipleParameters()
         {
@@ -122,8 +114,6 @@ namespace CSharpKoans
 
             Assert.AreEqual("Moose, Bullwinkle", fullName);
         }
-
-        // TODO:  Lambdas can declare parameter types.
 
         [Koan]
         public void LambdasCanDeclareParameterTypes()
@@ -139,35 +129,26 @@ namespace CSharpKoans
             CollectionAssert.AreEquivalent(plusOne, implicitPlusOne);
         }
 
-
-
          /*You can write a more complicated lambda expression using statements, enclosing the statements in braces. 
           * If you use this syntax, you must use the return statement, unless the lambda returns void.*/
 
         [Koan]
         public void LambdasCanContainMultipleStatements()
         {
-
             int[] numbers = { 1, 9, 7, 3, 27,6,0, 8, 5, 13, };
-
 
             /* write a single lambda that allows us to filter all numbers less than or equal to three or greater than 8 */
             var someNumbers = numbers.Where(
                     x =>
                     {
-                        return true;
                         // write the lambda here
-
+                        return true;
                     }
                 ) ;
 
             CollectionAssert.AreEquivalent(new int[] { 1, 9, 3, 27, 0, 13 }, someNumbers);
         }
-
-
-        /* see more lambdas in use in the next file: AboutLinq! */
     }
-
-
-
 }
+
+/* see more lambdas in use in the next file: AboutLinq! */

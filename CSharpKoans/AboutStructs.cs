@@ -75,7 +75,5 @@ namespace CSharpKoans
 
             Assert.AreEqual(5, distance);
         }
-
-
     }
 }
