@@ -41,7 +41,7 @@ namespace CSharpKoans
            Assert.IsInstanceOf<int>(mylist[0]);
 
             /* fix this statement so that it runs and makes sense */
-           Assert.IsInstanceOf<FILLMEIN>(mylist[2]);
+           Assert.IsInstanceOf<FILL_ME_IN>(mylist[2]);
         }
      
 
@@ -289,7 +289,7 @@ namespace CSharpKoans
         }
 
 
-        public class FILLMEIN
+        public class FILL_ME_IN
         { }
         const int ___ = int.MaxValue;
     }

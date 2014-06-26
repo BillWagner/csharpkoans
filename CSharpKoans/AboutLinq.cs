@@ -21,12 +21,12 @@ namespace CSharpKoans
                                      select n;
             /* n is the range variable */
 
-            Assert.AreEqual(__, evens.Count());
+            Assert.AreEqual(FILL_ME_IN, evens.Count());
 
             /* now modify this query to get the odd numbers */
             IEnumerable<int> odds = numbers/* add a query here */;
 
-            Assert.AreEqual(__, odds.Count());
+            Assert.AreEqual(FILL_ME_IN, odds.Count());
 
         }
 
@@ -54,9 +54,9 @@ namespace CSharpKoans
             int[] anArray = integers.Select(i => i*i).ToArray();
 
             /* fill in true or false */
-            Assert.AreEqual(__, anArray.Contains(1));
-            Assert.AreEqual(__, anArray.Contains(3));
-            Assert.AreEqual(__, anArray.Contains(100));
+            Assert.AreEqual(FILL_ME_IN, anArray.Contains(1));
+            Assert.AreEqual(FILL_ME_IN, anArray.Contains(3));
+            Assert.AreEqual(FILL_ME_IN, anArray.Contains(100));
 
 
         }
@@ -117,17 +117,17 @@ namespace CSharpKoans
 
 
             /* how many times is the random number generator used? we are calling select on a 100000-item list... */
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
 
             /* this time, we evaluate the first item in our random sequence... */
             var first = randomSequence.First();
 
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
 
             /* Thanks to the lazy nature of LINQ, the sequence is not pre-computed and stored in an array, 
              * but instead random numbers are generated on-demand, as you iterate over randomSequence. */
             var second = randomSequence.Skip(1).First();
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
         }
 
 
@@ -158,10 +158,10 @@ namespace CSharpKoans
 
             var countBooks = books.Count();
 
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
 
             var countAgain = books.Count();
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
         }
 
         [Koan]
@@ -175,7 +175,7 @@ namespace CSharpKoans
                 return b.PublicationYear < 1900;
             });
 
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
 
             counter = 0;
             var booksList = Library.Books.Any(b =>
@@ -184,7 +184,7 @@ namespace CSharpKoans
                 return b.PublicationYear < 1970;
             });
 
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
         }
 
         [Koan]
@@ -199,10 +199,10 @@ namespace CSharpKoans
 
             var countBooks = booksList.Count();
 
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
 
             var countAgain = booksList.Count();
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
         }
       
 
@@ -256,15 +256,7 @@ namespace CSharpKoans
             return item;
         }
 
-
-        public class FILLMEIN
-        { }
-        private bool ___()
-        {
-            return true;
-        }
-
-        const string __ = "FILL ME IN";
+        const string FILL_ME_IN = "FILL ME IN";
 
         public Library Library = new Library();
 

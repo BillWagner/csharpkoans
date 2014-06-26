@@ -11,15 +11,15 @@ namespace CSharpKoans
             public double Y;
         }
 
-        private const double FILL_ME_N = -1;
+        private const double FILL_ME_IN = -1;
 
         [Koan]
         public void UnderstandDefaultValuesForStructcs()
         {
             var pt = new Point();
 
-            Assert.AreEqual(FILL_ME_N, pt.X);
-            Assert.AreEqual(FILL_ME_N, pt.Y);
+            Assert.AreEqual(FILL_ME_IN, pt.X);
+            Assert.AreEqual(FILL_ME_IN, pt.Y);
         }
 
         [Koan]
@@ -36,10 +36,10 @@ namespace CSharpKoans
             pt2.X *= 2;
             pt2.Y *= 2;
 
-            Assert.AreEqual(FILL_ME_N, pt1.X);
-            Assert.AreEqual(FILL_ME_N, pt1.Y);
-            Assert.AreEqual(FILL_ME_N, pt2.X);
-            Assert.AreEqual(FILL_ME_N, pt2.Y);
+            Assert.AreEqual(FILL_ME_IN, pt1.X);
+            Assert.AreEqual(FILL_ME_IN, pt1.Y);
+            Assert.AreEqual(FILL_ME_IN, pt2.X);
+            Assert.AreEqual(FILL_ME_IN, pt2.Y);
         }
 
         [Koan]
@@ -55,7 +55,7 @@ namespace CSharpKoans
 
             pt1.X = 12;
 
-            Assert.AreEqual(FILL_ME_N, ((Point)pt2).X);
+            Assert.AreEqual(FILL_ME_IN, ((Point)pt2).X);
         }
 
         [Koan]

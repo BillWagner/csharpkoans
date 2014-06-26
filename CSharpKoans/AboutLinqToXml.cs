@@ -15,9 +15,9 @@ namespace CSharpKoans
         XDocument senatorsDoc = XDocument.Load(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "senators_cfm.xml"));
         XDocument nutritionDoc = XDocument.Load(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "nutrition.xml"));
 
-        /* DO NOT CHANGE THESE VALUES. MAKE THE KOANS WORK BY REPLACING ___ OR FILLMEIN WITH THE APPROPRIATE CODE */
-        const int ___ = int.MaxValue;
-         string[] FILLMEIN = new string[] { } ;
+        /* DO NOT CHANGE THESE VALUES. MAKE THE KOANS WORK BY REPLACING FILL_ME_IN OR ARRAY_FILL_ME_IN WITH THE APPROPRIATE CODE */
+        const int FILL_ME_IN = int.MaxValue;
+        string[] ARRAY_FILL_ME_IN = new string[] { } ;
 
         public class Senator
         {
@@ -36,15 +36,15 @@ namespace CSharpKoans
 
             /* contactInfo is the root node */
 
-            Assert.AreEqual(___, contactInfo.Name.LocalName);
-            Assert.AreEqual(___, contactInfo.Parent);
-            Assert.AreEqual(___, contactInfo.HasElements);
+            Assert.AreEqual(FILL_ME_IN, contactInfo.Name.LocalName);
+            Assert.AreEqual(FILL_ME_IN, contactInfo.Parent);
+            Assert.AreEqual(FILL_ME_IN, contactInfo.HasElements);
 
             /* Elements() are the direct child nodes of a parent node */
-            Assert.AreEqual(___, contactInfo.Elements().Count());
+            Assert.AreEqual(FILL_ME_IN, contactInfo.Elements().Count());
 
             /* Descendants are all the children at any level. */
-            Assert.AreEqual(___, contactInfo.Descendants().Count());
+            Assert.AreEqual(FILL_ME_IN, contactInfo.Descendants().Count());
         
         }
 
@@ -56,35 +56,35 @@ namespace CSharpKoans
             var senators = from s in contactInfo.Elements()
                            select s;
 
-          //  Assert.AreEqual(___, senators.Count());
+          //  Assert.AreEqual(FILL_ME_IN, senators.Count());
           
 
             var firstSenator = senators.First();
 
 
-            Assert.AreEqual(___, firstSenator.Name.LocalName);
-            Assert.AreEqual(___, firstSenator.Parent.Name.LocalName);
-            Assert.AreEqual(___, firstSenator.HasElements);
+            Assert.AreEqual(FILL_ME_IN, firstSenator.Name.LocalName);
+            Assert.AreEqual(FILL_ME_IN, firstSenator.Parent.Name.LocalName);
+            Assert.AreEqual(FILL_ME_IN, firstSenator.HasElements);
 
             /* ancestors are the opposite of descendants */
-           Assert.AreEqual(___, firstSenator.Ancestors().Count());
+           Assert.AreEqual(FILL_ME_IN, firstSenator.Ancestors().Count());
 
             /* Elements() are the direct child nodes of a parent node */
-            Assert.AreEqual(___, firstSenator.Elements().Count());
+            Assert.AreEqual(FILL_ME_IN, firstSenator.Elements().Count());
 
             /* Descendants are all the children at any level. */
-            Assert.AreEqual(___, firstSenator.Descendants().Count());
+            Assert.AreEqual(FILL_ME_IN, firstSenator.Descendants().Count());
 
             /* searching for an child node with a specific name returns all matching child nodes */
             var lastNameNodes = firstSenator.Elements("last_name");
 
-            Assert.AreEqual(___, lastNameNodes.Count());
+            Assert.AreEqual(FILL_ME_IN, lastNameNodes.Count());
 
             var lastName = lastNameNodes.First();
 
             /* Name vs. Value for a node */
-            Assert.AreEqual(___, lastName.Name.LocalName);
-            Assert.AreEqual(___, lastName.Value);
+            Assert.AreEqual(FILL_ME_IN, lastName.Name.LocalName);
+            Assert.AreEqual(FILL_ME_IN, lastName.Value);
 
       
           
@@ -106,8 +106,8 @@ namespace CSharpKoans
                         select e.Value;
 
 
-            Assert.AreEqual(___, state.Count());
-            Assert.AreEqual(___, state.First());
+            Assert.AreEqual(FILL_ME_IN, state.Count());
+            Assert.AreEqual(FILL_ME_IN, state.First());
         }
 
         [Koan]

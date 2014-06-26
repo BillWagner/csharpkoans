@@ -10,9 +10,9 @@ namespace CSharpKoans
 {
     public class AboutLambdas : KoanContainer
     {
-        const int ___ = int.MaxValue;
-        KoanDelegate FILLMEIN = null;// n => n;
-         BooleanKoanDelegate BOOLFILLMEIN =null; //= n => false;
+        const int FILL_ME_IN = int.MaxValue;
+        KoanDelegate DELEGATE_FILL_ME_IN = null;// n => n;
+        BooleanKoanDelegate BOOL_DELEGATE_FILL_ME_IN = null; //= n => false;
       
 
         /*  A lambda expression is an anonymous function that can contain expressions and statements
@@ -29,10 +29,10 @@ namespace CSharpKoans
             KoanDelegate timesTwo = n=> n*2;
             int result = timesTwo(5);
 
-            Assert.AreEqual(___, result);
+            Assert.AreEqual(FILL_ME_IN, result);
 
-            /* replace FILLMEIN with code to create a delegate that adds 5 to its argument */
-            KoanDelegate plusFive = FILLMEIN;
+            /* replace FILL_ME_IN with code to create a delegate that adds 5 to its argument */
+            KoanDelegate plusFive = DELEGATE_FILL_ME_IN;
             int additionResult = plusFive(3);
             Assert.AreEqual(8, additionResult);
             
@@ -45,7 +45,7 @@ namespace CSharpKoans
         {
 
             /* replace BOOLFILLMEIN with a lambda to create a delegate that returns true if the # of chars in the argument is > five, false otherwise */
-            BooleanKoanDelegate isLongerThanFive = BOOLFILLMEIN;
+            BooleanKoanDelegate isLongerThanFive = BOOL_DELEGATE_FILL_ME_IN;
             bool result = isLongerThanFive("srtsolutions");
             
             bool no = isLongerThanFive("a2");
@@ -66,10 +66,10 @@ namespace CSharpKoans
             // This Func type does not require a previous delegate definition.
             Func<int, bool> myFunc = x => x > 5;
             bool result = myFunc(4);
-            Assert.AreEqual(___, result);
+            Assert.AreEqual(FILL_ME_IN, result);
 
             /* fill in an appropriate argument so that the return value is true */
-            bool makeThisTrue = myFunc(___);
+            bool makeThisTrue = myFunc(FILL_ME_IN);
             Assert.True(makeThisTrue);
         }
 
@@ -78,7 +78,7 @@ namespace CSharpKoans
         {
             int[] numbers = { 1,9,7,3,6,8,5};
             var smallNumbers = numbers.Where(n => n< 4);
-            Assert.AreEqual(___, smallNumbers.Count());
+            Assert.AreEqual(FILL_ME_IN, smallNumbers.Count());
           
             /* replace default expression with a lambda that returns true if a number is even */
             IEnumerable<int> evenNumbers = numbers.Where(default(Func<int, bool>));
@@ -90,7 +90,7 @@ namespace CSharpKoans
         public void CountQueryOperatorCanTakeALambda()
         {
             int[] numbers = { 1, 9, 7, 3, 6, 8, 5 };
-            Assert.AreEqual(___, numbers.Count());
+            Assert.AreEqual(FILL_ME_IN, numbers.Count());
 
             /* replace default expression with a lambda that returns true if a number is >7 */
             int largeNumbers = numbers.Count(default(Func<int, bool>));

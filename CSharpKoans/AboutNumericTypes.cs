@@ -5,13 +5,17 @@ namespace CSharpKoans
 {
     public class AboutNumericTypes : KoanContainer
     {
+        private int FILL_ME_IN = -1;
+
+        private struct TYPE_FILL_ME_IN { }
+
         [Koan]
         public void UnderstandTheDefaultNumericType()
         {
             var i = 42;
 
             // What type is i?
-            Assert.AreEqual(typeof(string), i.GetType());
+            Assert.AreEqual(typeof(TYPE_FILL_ME_IN), i.GetType());
         }
 
         [Koan]
@@ -20,7 +24,7 @@ namespace CSharpKoans
             int initialValue = 5;
             double implicitlyConverted = initialValue;
 
-            int finalValue = default(int);
+            int finalValue = FILL_ME_IN;
             // uncomment this line and fix the compiler error:
             //finalValue = implicitlyConverted;
 
@@ -33,7 +37,7 @@ namespace CSharpKoans
             int numerator = 27;
             int denominator = 5;
 
-            int expected = default(int);
+            int expected = FILL_ME_IN;
             int actual = numerator / denominator;
             Assert.AreEqual(expected, actual);
         }
@@ -44,7 +48,7 @@ namespace CSharpKoans
             double numerator = 27;
             double denominator = 5;
 
-            double expected = default(double);
+            double expected = FILL_ME_IN;
             double actual = numerator / denominator;
             Assert.AreEqual(expected, actual);
         }
@@ -78,10 +82,10 @@ namespace CSharpKoans
 
             j -= 200;
 
-            Assert.AreEqual(default(int), i);
+            Assert.AreEqual(FILL_ME_IN, i);
             // You may need to look at the value of j in the debugger to
             // fix this one:
-            Assert.AreEqual(default(uint), j);
+            Assert.AreEqual(FILL_ME_IN, j);
         }
 
         [Koan]
@@ -93,7 +97,7 @@ namespace CSharpKoans
             var k = i + j;
 
             // What type is k?
-            Assert.AreEqual(typeof(int), k.GetType());
+            Assert.AreEqual(typeof(TYPE_FILL_ME_IN), k.GetType());
 
         }
     }

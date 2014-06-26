@@ -9,7 +9,7 @@ namespace CSharpKoans
 {
     public class AboutNullAndTypes : KoanContainer
     {
-        string ___ = "FILL ME IN";
+        string FILL_ME_IN = "FILL ME IN";
 
         /* The null keyword is a literal that represents a null reference, one that does not refer to any object. 
          * null is the default value of reference-type variables. Ordinary value types cannot be null. */
@@ -29,7 +29,7 @@ namespace CSharpKoans
         [Koan]
         public void ComparingNulls()
         {
-            Assert.AreEqual(___, null==null);
+            Assert.AreEqual(FILL_ME_IN, null==null);
         }
 
 
@@ -41,7 +41,7 @@ namespace CSharpKoans
 
             // Equals applied to any null object...
             bool b = (t.Equals(s));
-            Assert.AreEqual(___, b);
+            Assert.AreEqual(FILL_ME_IN, b);
         }
 
         [Koan]
@@ -51,7 +51,7 @@ namespace CSharpKoans
             string t = String.Empty;
 
             bool b = (s == t);
-            Assert.AreEqual(___, b);
+            Assert.AreEqual(FILL_ME_IN, b);
 
         }
 
@@ -71,7 +71,7 @@ namespace CSharpKoans
             int i = new int();
             int j = 0;
 
-            Assert.AreEqual(___, i==j);
+            Assert.AreEqual(FILL_ME_IN, i==j);
         }
 
         [Koan]
@@ -80,13 +80,13 @@ namespace CSharpKoans
          
             /* to make a value type null, declare it as nullable */
             int? nullableInt = null;
-            Assert.AreEqual(___, nullableInt.HasValue);
+            Assert.AreEqual(FILL_ME_IN, nullableInt.HasValue);
 
             nullableInt = 0;
-            Assert.AreEqual(___, nullableInt.HasValue);
+            Assert.AreEqual(FILL_ME_IN, nullableInt.HasValue);
 
 
-            Assert.AreEqual(___, nullableInt.Value);
+            Assert.AreEqual(FILL_ME_IN, nullableInt.Value);
 
         }
        
