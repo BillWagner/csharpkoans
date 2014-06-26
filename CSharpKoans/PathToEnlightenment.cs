@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using CSharpKoans.Core;
 
 namespace CSharpKoans
 {
     public class PathToEnlightenment
     {
-        public IEnumerable<KoanContainer> containers
+        public IEnumerable<KoanContainer> Containers
         {
             get
             {
@@ -28,9 +26,13 @@ namespace CSharpKoans
 
         public void Execute()
         {
-            var runner = new KoanRunner(containers);
+            var runner = new KoanRunner(Containers);
             var result = runner.ExecuteKoans();
-            if (result is Success) Console.WriteLine(result.Message);
+
+            if (result is Success)
+            {
+                Console.WriteLine(result.Message);
+            }
             else
             {
                 var failure = result as Failure;
@@ -48,7 +50,7 @@ namespace CSharpKoans
                 Console.WriteLine("");
                 Console.WriteLine("");
                 Console.WriteLine("");
-                System.Console.ReadKey();
+                Console.ReadKey();
             }
         }
     }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using CSharpKoans.Core;
 using System.Collections;
 using NUnit.Framework;
@@ -270,6 +269,7 @@ namespace CSharpKoans
             var sortedByLength = people.Sort(new LengthComparer());
             Assert.AreEqual("Bob", sortedByLength.First());
         }
+
 
         public class CLASS_FILL_ME_IN { }
         const int FILL_ME_IN = int.MaxValue;

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace CSharpKoans
 {
@@ -10,7 +7,8 @@ namespace CSharpKoans
         public IList<Book> Books { get; set; }
         public Library()
         {
-            Books = new List<Book> { 
+            Books = new List<Book> 
+            { 
                 new Book("Lolita, light of my life, fire of my loins.")
                 {
                     Title = "Lolita", Author = "Nabokov", PublicationYear = 1955
