@@ -35,7 +35,7 @@ namespace CSharpKoans
         public void AssertEquality()
         {
             var expected_value = 1 + 1;
-            var actual_value = __;
+            var actual_value = FILL_ME_IN;
          
 
             Assert.AreEqual(expected_value, actual_value);
@@ -44,9 +44,9 @@ namespace CSharpKoans
         [Koan]
         public void FillInValues()
         {
-            Assert.AreEqual(1 + 1, __);
+            Assert.AreEqual(1 + 1, FILL_ME_IN);
         }
 
-        const string __ = "FILL ME IN";
+        const string FILL_ME_IN = "FILL ME IN";
     }
 }
