@@ -6,6 +6,8 @@ namespace CSharpKoans
 {
     public class AboutEnums : KoanContainer
     {
+        private int FILL_ME_IN = -1;
+
         public enum Direction
         {
             Up,
@@ -19,9 +21,9 @@ namespace CSharpKoans
         {
             var dir = new Direction();
 
-            Assert.AreEqual(-1, dir);
+            Assert.AreEqual(FILL_ME_IN, (int)dir);
 
-            Assert.AreEqual(-1, Direction.Left);
+            Assert.AreEqual(FILL_ME_IN, (int)Direction.Left);
         }
 
         public enum DaysOfTheWeek
@@ -42,21 +44,21 @@ namespace CSharpKoans
             var thur = DaysOfTheWeek.Thursday;
             var sat = DaysOfTheWeek.Saturday;
 
-            Assert.AreEqual(-1, tue);
-            Assert.AreEqual(-1, thur);
-            Assert.AreEqual(-1, sat);
+            Assert.AreEqual(FILL_ME_IN, (int)tue);
+            Assert.AreEqual(FILL_ME_IN, (int)thur);
+            Assert.AreEqual(FILL_ME_IN, (int)sat);
 
         }
 
         [Koan]
         public void EnumsCanTakeUndefinedValues()
         {
-            var toBeInvalid = Direction.Right;
+            Direction toBeInvalid = Direction.Right;
 
             // reassign toBeInvalid.
             // A cast may be needed
 
-            Assert.AreEqual(42, toBeInvalid);
+            Assert.AreEqual(42, (int)toBeInvalid);
         }
         
         [Flags]
@@ -74,7 +76,7 @@ namespace CSharpKoans
         {
             var composite = Styles.Rounded | Styles.Raised;
 
-            Assert.AreEqual(-1, composite);
+            Assert.AreEqual(FILL_ME_IN, (int)composite);
         }
 
         [Koan]
@@ -82,7 +84,7 @@ namespace CSharpKoans
         {
             var day = default(DaysOfTheWeek);
 
-            Assert.AreEqual(-1, day);
+            Assert.AreEqual(FILL_ME_IN, (int)day);
         }
     }
 }
