@@ -8,7 +8,6 @@ namespace CSharpKoans
 {
     public class PathToEnlightenment
     {
-
         public IEnumerable<KoanContainer> containers
         {
             get
@@ -26,8 +25,6 @@ namespace CSharpKoans
                 yield return new AboutLinqToXml(); 
             }
         }
-
-
 
         public void Execute()
         {
@@ -54,6 +51,5 @@ namespace CSharpKoans
                 System.Console.ReadKey();
             }
         }
-
     }
 }
