@@ -2,23 +2,23 @@ using System;
 
 namespace CSharpKoans.Core
 {
-    public abstract class KoanResult
+    public interface IKoanResult
     {
-
-        public string Message { get; set; }
-
+        string Message { get; set; }
     }
 
-    public class Success : KoanResult
+    public class Success : IKoanResult
     {
+        public string Message { get; set; }
         public Success(string successMessage)
         {
             Message = successMessage;
         }
     }
 
-    public class Failure : KoanResult
+    public class Failure : IKoanResult
     {
+        public string Message { get; set; }
         public Exception Exception { get; set; }
         public Failure(string failureMessage, Exception e)
         {
