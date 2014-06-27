@@ -27,31 +27,8 @@ namespace CSharpKoans
         public void Execute()
         {
             var runner = new KoanRunner(Containers);
-            var result = runner.ExecuteKoans();
-
-            if (result is Success)
-            {
-                Console.WriteLine(result.Message);
-            }
-            else
-            {
-                var failure = result as Failure;
-                Console.WriteLine(result.Message);
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine("You have not yet reached enlightenment ...");
-                Console.WriteLine(failure.Message);
-                Console.WriteLine("");
-                Console.WriteLine("Please meditate on the following code:");
-                Console.WriteLine(failure.Exception.StackTrace);
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.ReadKey();
-            }
+            runner.ExecuteKoans();
+            Console.ReadKey();
         }
     }
 }
