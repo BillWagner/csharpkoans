@@ -64,8 +64,7 @@ namespace CSharpKoans.Test
         [Test]
         public void AFailingKoanReturnsItsException()
         {
-            var container = new KoanContainer();
-            var result = container.RunKoans(new FailureContainer()).First();
+            var result = new FailureContainer().RunKoans().First();
 
             Assert.AreEqual("FailureKoan has damaged your karma.", result.Message);
         }
@@ -74,7 +73,7 @@ namespace CSharpKoans.Test
         [Test]
         public void AFailingKoanReturnsAFailureMessage()
         {
-            var result = new KoanContainer().RunKoans(new FailureContainer()).First();
+            var result = new FailureContainer().RunKoans().First();
             Assert.AreEqual("FailureKoan has damaged your karma.", result.Message);
 
             Assert.AreEqual("expected failure", (result as Failure).Exception.Message);
@@ -83,14 +82,14 @@ namespace CSharpKoans.Test
         [Test]
         public void ASuccessfulKoanReturnsASuccessMessage()
         {
-            var result = new KoanContainer().RunKoans(new SuccessContainer()).First();
+            var result = new SuccessContainer().RunKoans().First();
             Assert.AreEqual("SuccessKoan has expanded your awareness.", result.Message);
         }
 
         [Test]
         public void TheOutcomeOfAllSuccessfulKoansIsReturned()
         {
-           var result =  new KoanContainer().RunKoans(new SomeSuccesses()).Select(x => x.Message).Aggregate((x, y) => x + System.Environment.NewLine + y);
+           var result =  new SomeSuccesses().RunKoans().Select(x => x.Message).Aggregate((x, y) => x + System.Environment.NewLine + y);
 
             var expected = "One has expanded your awareness." + System.Environment.NewLine + "Two has expanded your awareness.";
 
@@ -101,7 +100,7 @@ namespace CSharpKoans.Test
         ////might want to change this behavior
         public void FailedKoansDontStopTheEnumeration()
         {
-            var result = new KoanContainer().RunKoans(new MixedBag()).Select(x => x.Message).Aggregate((x, y) => x + System.Environment.NewLine + y);
+            var result = new MixedBag().RunKoans().Select(x => x.Message).Aggregate((x, y) => x + System.Environment.NewLine + y);
 
             var expected = "One has damaged your karma." + System.Environment.NewLine + "Two has expanded your awareness.";
 
