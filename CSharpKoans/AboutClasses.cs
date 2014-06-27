@@ -15,7 +15,7 @@ namespace CSharpKoans
             public string Henchman { get; set; }
             public string Mission { get; set; }
 
-            internal int RetrieveNextStepOfPlan()
+            internal string RetrieveNextStepOfPlan()
             {
                 throw new NotImplementedException();
             }
