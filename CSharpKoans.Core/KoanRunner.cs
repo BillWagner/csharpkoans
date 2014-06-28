@@ -1,86 +1,51 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace CSharpKoans.Core
 {
     public class KoanRunner
     {
-        private IEnumerable<KoanContainer> containers { get; set; }
+        private IEnumerable<KoanContainer> Containers { get; set; }
 
         public KoanRunner(IEnumerable<KoanContainer> containers)
         {
-            this.containers = containers;
+            this.Containers = containers;
         }
 
-        
-        public KoanResult ExecuteKoans()
+        public void ExecuteKoans()
         {
-            var koanResults = from c in containers select executeContainer(c);
-
-            return koanResults.Aggregate<KoanResult, KoanResult>(new Success(""), combineContainersUnlessFailed);
-
+            foreach (var c in Containers)
+            {
+                if (OutputKoansWhileSuccessful(c))
+                    return;
+            }
         }
 
-
-        private KoanResult executeContainer(KoanContainer container)
+        /// <summary>
+        /// Outputs the results of a <see cref="KoanContainer"/> to the console.
+        /// Stops when a failed Koan is detected.
+        /// </summary>
+        /// <param name="container"><see cref="KoanContainer"/> to be evaluated and output.</param>
+        /// <returns>true if a failure has been found.</returns>
+        private bool OutputKoansWhileSuccessful(KoanContainer container)
         {
-
-            var name = container.GetType().Name;
-            var lineOne = string.Format("When contemplating {0}:", name);
-
-            var koanResults = new KoanContainer().RunKoans(container);
-            var returnValue = koanResults.Aggregate<KoanResult, KoanResult>(new Success(lineOne), combineLinesUnlessFailed);
-            return returnValue;
-
-
+            Console.WriteLine("While contemplating {0}: ", container.GetType().Name);
+            foreach (var koan in container.RunKoans())
+            {
+                Console.WriteLine("\t{0}", koan.Message);
+                if (koan is Failure)
+                {
+                    var k = koan as Failure;
+                    Console.WriteLine("\n\n\n");
+                    Console.WriteLine("You have not yet reached enlightenment.");
+                    Console.WriteLine("Meditate on the following code: ");
+                    Console.WriteLine();
+                    Console.WriteLine(k.Exception.StackTrace);
+                    Console.WriteLine("\n\n");
+                    return true;
+                }
+            }
+            return false;
         }
-        private KoanResult combine(Func<string, string, string> joinMessages, string message, KoanResult next)
-        {
-            var newMsg = joinMessages(message, next.Message);
-
-            if (next is Success)
-                return new Success(newMsg);
-            else
-                return new Failure(newMsg, (next as Failure).Exception);
-        }
-
-
-
-        private string joinLines(string x, string y)
-        {
-            return String.Concat(x, System.Environment.NewLine,
-                                         "    ", y);
-        }
-
-        private string joinContainers(string x, string y)
-        {
-            return String.Concat(x, System.Environment.NewLine,
-                                                System.Environment.NewLine, y);
-        }
-
-        private KoanResult combineContainersUnlessFailed(KoanResult state, KoanResult next)
-        {
-
-            if (state is Success)
-                return combine(joinContainers, state.Message, next);
-            else return state;
-
-        }
-
-        private KoanResult combineLinesUnlessFailed(KoanResult state, KoanResult next)
-        {
-
-            if (state is Success)
-                return combine(joinLines, state.Message, next);
-            else return state;
-
-
-        }
-
-
-
-
-
     }
 }
