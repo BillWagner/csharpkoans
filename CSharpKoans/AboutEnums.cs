@@ -4,6 +4,9 @@ using System;
 
 namespace CSharpKoans
 {
+    /// <summary>
+    /// Understanding the properties and behaviors of your choices.
+    /// </summary>
     public class AboutEnums : KoanContainer
     {
         private int FILL_ME_IN = -1;
@@ -16,6 +19,12 @@ namespace CSharpKoans
             Right
         }
 
+        /// <summary>
+        /// All objects have a resting state.
+        /// </summary>
+        /// <instructions>
+        /// Infer the default state for the Direction enum.
+        /// </instructions>
         [Koan]
         public void UnderstandTheDefaultValueOfEnumConstants()
         {
@@ -37,6 +46,12 @@ namespace CSharpKoans
             Saturday
         }
 
+        /// <summary>
+        /// Sometimes an object's default state depends on that object which came before it.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the correct default values for the given enum values.
+        /// </instructions>
         [Koan]
         public void UnderstandHowEnumVariablesAreAssigned()
         {
@@ -49,13 +64,16 @@ namespace CSharpKoans
             Assert.AreEqual(FILL_ME_IN, (int)sat);
         }
 
+        /// <summary>
+        /// Objects that may look alike may not necessarily be so.
+        /// </summary>
+        /// <instructions>
+        /// Correctly assign the expected value to toBeInvalid.
+        /// </instructions>
         [Koan]
         public void EnumsCanTakeUndefinedValues()
         {
             Direction toBeInvalid = Direction.Right;
-
-            // reassign toBeInvalid.
-            // A cast may be needed
 
             Assert.AreEqual(42, (int)toBeInvalid);
         }
@@ -70,6 +88,12 @@ namespace CSharpKoans
             Sunken = 8
         }
 
+        /// <summary>
+        /// Sometimes mulitple choices must be joined to create one unique options.
+        /// </summary>
+        /// <instructions>
+        /// Infer the unique choice that is being made.
+        /// </instructions>
         [Koan]
         public void BitFlagsCanBeCombined()
         {
@@ -78,6 +102,12 @@ namespace CSharpKoans
             Assert.AreEqual(FILL_ME_IN, (int)composite);
         }
 
+        /// <summary>
+        /// An object's default state does not change, even if you try.
+        /// </summary>
+        /// <instructions>
+        /// Find equality.
+        /// </instructions>
         [Koan]
         public void DefaultEnumValuesIgnoreAssignedValues()
         {
