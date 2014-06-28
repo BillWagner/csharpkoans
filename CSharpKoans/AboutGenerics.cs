@@ -293,7 +293,7 @@ namespace CSharpKoans
             Assert.AreEqual("Bob", sortedByLength.First());
         }
 
-        public class CLASS_FILL_ME_IN { }
-        const int FILL_ME_IN = int.MaxValue;
+        private class CLASS_FILL_ME_IN { }
+        private const int FILL_ME_IN = int.MaxValue;
     }
 }

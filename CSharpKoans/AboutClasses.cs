@@ -21,8 +21,6 @@ namespace CSharpKoans
             }
         }
 
-        const string FILL_ME_IN = "";
-
         /// <summary>
         /// Each time a rumour spreads about someone it is still about the same person.
         /// </summary>
@@ -101,5 +99,7 @@ namespace CSharpKoans
             Assert.AreEqual("Get Batman to reveal his secret identity", Joker.RetrieveNextStepOfPlan());
             Assert.AreEqual("Put Bruce Wayne in Jail", Joker.RetrieveNextStepOfPlan());
         }
+
+        private const string FILL_ME_IN = "";
     }
 }

@@ -15,14 +15,6 @@ namespace CSharpKoans
     /// </summary>
     public class AboutLambdas : KoanContainer
     {
-        const int FILL_ME_IN = -1;
-        KoanDelegate DELEGATE_FILL_ME_IN = null;
-        BooleanKoanDelegate BOOL_DELEGATE_FILL_ME_IN = null;
-        Func<int, bool> LAMBDA_FILL_ME_IN = null;
-        Func<string, string, string> MULTIPLE_PARAMS_FILL_ME_IN = null;
-
-        delegate int KoanDelegate(int i);
-
         /// <summary>
         /// Lambdas may be saved like a type, but they must match the delegate they
         /// are saved to. All parameters and return types must match.
@@ -179,5 +171,12 @@ namespace CSharpKoans
 
             CollectionAssert.AreEquivalent(new int[] { 9, 7, 8, 6}, someNumbers);
         }
+
+        private const int FILL_ME_IN = -1;
+        private KoanDelegate DELEGATE_FILL_ME_IN = null;
+        private BooleanKoanDelegate BOOL_DELEGATE_FILL_ME_IN = null;
+        private Func<int, bool> LAMBDA_FILL_ME_IN = null;
+        private Func<string, string, string> MULTIPLE_PARAMS_FILL_ME_IN = null;
+        private delegate int KoanDelegate(int i);
     }
 }

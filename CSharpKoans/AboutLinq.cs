@@ -311,10 +311,9 @@ namespace CSharpKoans
             return item;
         }
 
-        const string FILL_ME_IN = "FILL ME IN";
-        IEnumerable<int> LINQ_FILL_ME_IN = null;
+        private const string FILL_ME_IN = "FILL ME IN";
+        private IEnumerable<int> LINQ_FILL_ME_IN = null;
         private Func<int, bool> LAMBDA_FILL_ME_IN = null;
-
-        public Library Library = new Library();
+        private Library Library = new Library();
     }
 }

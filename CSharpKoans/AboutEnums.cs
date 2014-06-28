@@ -9,8 +9,6 @@ namespace CSharpKoans
     /// </summary>
     public class AboutEnums : KoanContainer
     {
-        private int FILL_ME_IN = -1;
-
         public enum Direction
         {
             Up,
@@ -115,5 +113,7 @@ namespace CSharpKoans
 
             Assert.AreEqual(FILL_ME_IN, (int)day);
         }
+
+        private const int FILL_ME_IN = -1;
     }
 }

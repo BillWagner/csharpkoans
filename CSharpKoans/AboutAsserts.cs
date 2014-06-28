@@ -11,7 +11,7 @@ namespace CSharpKoans
     public class AboutAsserts : KoanContainer
     {
         /// <summary>
-        /// Assert your reality over other's.
+        /// Assert your reality over others.
         /// </summary>
         /// <instructions>
         /// Force truth where there is misdirection.
@@ -50,6 +50,6 @@ namespace CSharpKoans
             Assert.AreEqual(expected_value, actual_value);
         }
 
-        const string FILL_ME_IN = "FILL ME IN";
+        private const string FILL_ME_IN = "FILL ME IN";
     }
 }
