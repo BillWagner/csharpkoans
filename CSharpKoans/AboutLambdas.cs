@@ -1,173 +1,182 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using CSharpKoans.Core;
 using NUnit.Framework;
-using System.Collections;
 
 namespace CSharpKoans
 {
+    /// <summary>
+    /// Lambdas are functions without names. They may be used like objects and can be
+    /// made to accomplish small, specific, tasks.
+    /// 
+    /// A delegate is used to represent a function. It is defined like a function
+    /// and facilitates the use of functions as first class citizens.
+    /// </summary>
     public class AboutLambdas : KoanContainer
     {
-        const int ___ = int.MaxValue;
-        KoanDelegate FILLMEIN = null;// n => n;
-         BooleanKoanDelegate BOOLFILLMEIN =null; //= n => false;
-      
-
-        /*  A lambda expression is an anonymous function that can contain expressions and statements
-         *
-         * (input parameters) => expression
-         */
-
-        delegate int KoanDelegate(int i);
-
+        /// <summary>
+        /// Lambdas may be saved like a type, but they must match the delegate they
+        /// are saved to. All parameters and return types must match.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the expected value.
+        /// Then create a lambda to behave as expected and return
+        /// the expected value.
+        /// </instructions>
         [Koan]
         public void ALambdaCanBeUsedToCreateADelegate()
         {
-            /* note the definition of KoanDelegate above! */
-            KoanDelegate timesTwo = n=> n*2;
+            KoanDelegate timesTwo = (n) => n*2;
             int result = timesTwo(5);
 
-            Assert.AreEqual(___, result);
+            Assert.AreEqual(FILL_ME_IN, result);
 
-            /* replace FILLMEIN with code to create a delegate that adds 5 to its argument */
-            KoanDelegate plusFive = FILLMEIN;
+            KoanDelegate plusFive = DELEGATE_FILL_ME_IN;
             int additionResult = plusFive(3);
             Assert.AreEqual(8, additionResult);
-            
         }
 
         delegate bool BooleanKoanDelegate(string s);
 
+        /// <summary>
+        /// Lambdas may have any set of parameters or return types. However, if you wish
+        /// to assign them to a name, they must match their delegate.
+        /// </summary>
+        /// <instruction>
+        /// Implement the appropriate lambda to return the expected values.
+        /// </instruction>
         [Koan]
         public void DelegatesCanHaveVariousArgumentAndReturnTypes()
         {
+            BooleanKoanDelegate isLongerThanFive = BOOL_DELEGATE_FILL_ME_IN;
 
-            /* replace BOOLFILLMEIN with a lambda to create a delegate that returns true if the # of chars in the argument is > five, false otherwise */
-            BooleanKoanDelegate isLongerThanFive = BOOLFILLMEIN;
-            bool result = isLongerThanFive("srtsolutions");
-            
-            bool no = isLongerThanFive("a2");
-            Assert.True(result);
-            Assert.IsFalse(no);
-
+            Assert.IsTrue(isLongerThanFive("srtsolutions"));
+            Assert.IsFalse(isLongerThanFive("a2"));
         }
 
-
-       /* Do you wonder how to pronounce the => token? 
-       * If the lambda expression is a predicate, expressing some condition:
-       * c => c.State == "MI" then the => can be spoken as "such that".  */
-
-
+        /// <summary>
+        /// The Func type is a quick way to save a lambda to a variable without declaring
+        /// a delegate type before-hand.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the values to produce the expected behavior.
+        /// </instructions>
         [Koan]
         public void FuncTypesAreTypeSafeShorthandForBuildingDelegateTypes()
         {
-            // This Func type does not require a previous delegate definition.
             Func<int, bool> myFunc = x => x > 5;
             bool result = myFunc(4);
-            Assert.AreEqual(___, result);
+            Assert.AreEqual(FILL_ME_IN, result);
 
-            /* fill in an appropriate argument so that the return value is true */
-            bool makeThisTrue = myFunc(___);
+            bool makeThisTrue = myFunc(FILL_ME_IN);
             Assert.True(makeThisTrue);
         }
 
+        /// <summary>
+        /// Lambdas may act as decision makers. They may act on each value
+        /// of a list and decide if it fits some criteria.
+        /// </summary>
+        /// <instructions>
+        /// Create a lambda which fulfils the expected behavior.
+        /// </instructions>
         [Koan]
         public void LambdasCanBeUsedWithStandardQueryOperators()
         {
             int[] numbers = { 1,9,7,3,6,8,5};
             var smallNumbers = numbers.Where(n => n< 4);
-            Assert.AreEqual(___, smallNumbers.Count());
+            Assert.AreEqual(FILL_ME_IN, smallNumbers.Count());
           
-            /* replace default expression with a lambda that returns true if a number is even */
-            IEnumerable<int> evenNumbers = numbers.Where(default(Func<int, bool>));
+            IEnumerable<int> evenNumbers = numbers.Where(LAMBDA_FILL_ME_IN);
             Assert.AreEqual(2, evenNumbers.Count());
-        
         }
 
+        /// <summary>
+        /// Lambdas may be used in several places. Any function which takes
+        /// a Predicate takes a lambda of some sort.
+        /// </summary>
+        /// <instructions>
+        /// Create a lambda which fulfills the expected behavior.
+        /// </instructions>
         [Koan]
         public void CountQueryOperatorCanTakeALambda()
         {
             int[] numbers = { 1, 9, 7, 3, 6, 8, 5 };
-            Assert.AreEqual(___, numbers.Count());
+            Assert.AreEqual(FILL_ME_IN, numbers.Count());
 
-            /* replace default expression with a lambda that returns true if a number is >7 */
-            int largeNumbers = numbers.Count(default(Func<int, bool>));
-            Assert.AreEqual(2, largeNumbers);
+            int greaterThanSeven = numbers.Count(LAMBDA_FILL_ME_IN);
+            Assert.AreEqual(2, greaterThanSeven);
         }
 
-        [Koan]
-        public void GreaterThanOrEqualToSymbolDiffersFromGoesTo()
-        {
-            int[] numbers = { 1, 9, 7, 3, 6, 8, 5 };
-
-            /* replace default expression with a lambda that returns true if a number is >= 7 */
-            int largeNumbers = numbers.Count(default(Func<int, bool>));
-            Assert.AreEqual(3, largeNumbers);
-        }
-
-      
-
+        /// <summary>
+        /// Lambdas are just like functions. They can even accept
+        /// multiple parameters.
+        /// </summary>
+        /// <instructions>
+        /// Create a lambda which accepts two parameters and fulfills the requirements.
+        /// </instructions>
         [Koan]
         public void LambdaExpressionsCanAcceptMultipleParameters()
         {
-            string FirstName = "Bullwinkle";
-            string LastName = "Moose";
+            string firstName = "Bullwinkle";
+            string lastName = "Moose";
 
-            Func<string, string, string> joinStrings = null;
+            Func<string, string, string> joinStrings = MULTIPLE_PARAMS_FILL_ME_IN;
 
-            /* Define a lambda for joinStrings that returns "LastName, FirstName" */
-            var fullName = joinStrings(FirstName, LastName);
+            var fullName = joinStrings(firstName, lastName);
 
             Assert.AreEqual("Moose, Bullwinkle", fullName);
         }
 
-        // TODO:  Lambdas can declare parameter types.
-
+        /// <summary>
+        /// Lambdas may specify parameter types. If they do not, then the types
+        /// will be inferred.
+        /// </summary>
+        /// <instructions>
+        /// Implement a duplicate lambda to the one shown but instead use implicit
+        /// parameter types.
+        /// </instructions>
         [Koan]
         public void LambdasCanDeclareParameterTypes()
         {
             double[] doubles = {1.1, 2.2, 3.3};
 
-            /* you can declare the argument type directly in your lambda for clarity */
             IEnumerable<double> plusOne = doubles.Select((double x) => x + 1);
 
-            /* but if you don't, the compiler will infer the types */
-            var implicitPlusOne = doubles; // add an implicitly typed lambda (with no types on arguments)
+            var implicitPlusOne = doubles;
 
             CollectionAssert.AreEquivalent(plusOne, implicitPlusOne);
         }
 
-
-
-         /*You can write a more complicated lambda expression using statements, enclosing the statements in braces. 
-          * If you use this syntax, you must use the return statement, unless the lambda returns void.*/
-
+        /// <summary>
+        /// Lambdas may be as complex as any other function.
+        /// They may span many statements and many lines.
+        /// If you do this then you must specify the return.
+        /// </summary>
+        /// <instructions>
+        /// Edit the given lambda to return true if the given number
+        /// is between 5 and 10. (Exclusive)
+        /// </instructions>
         [Koan]
         public void LambdasCanContainMultipleStatements()
         {
+            int[] numbers = { 1, 9, 7, 3, 27, 6, 0, 8, 5, 13, };
 
-            int[] numbers = { 1, 9, 7, 3, 27,6,0, 8, 5, 13, };
-
-
-            /* write a single lambda that allows us to filter all numbers less than or equal to three or greater than 8 */
             var someNumbers = numbers.Where(
                     x =>
                     {
                         return true;
-                        // write the lambda here
-
                     }
                 ) ;
 
-            CollectionAssert.AreEquivalent(new int[] { 1, 9, 3, 27, 0, 13 }, someNumbers);
+            CollectionAssert.AreEquivalent(new int[] { 9, 7, 8, 6}, someNumbers);
         }
 
-
-        /* see more lambdas in use in the next file: AboutLinq! */
+        private const int FILL_ME_IN = -1;
+        private KoanDelegate DELEGATE_FILL_ME_IN = null;
+        private BooleanKoanDelegate BOOL_DELEGATE_FILL_ME_IN = null;
+        private Func<int, bool> LAMBDA_FILL_ME_IN = null;
+        private Func<string, string, string> MULTIPLE_PARAMS_FILL_ME_IN = null;
+        private delegate int KoanDelegate(int i);
     }
-
-
-
 }

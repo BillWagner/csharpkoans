@@ -1,52 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CSharpKoans.Core;
+﻿using CSharpKoans.Core;
 using NUnit.Framework;
 
 
 
 namespace CSharpKoans
 {
-  
+    /// <summary>
+    /// We shall contemplate truth by testing reality, via asserts.
+    /// </summary>
     public class AboutAsserts : KoanContainer
     {
-
-
-        // We shall contemplate truth by testing reality, via asserts.
-
+        /// <summary>
+        /// Assert your reality over others.
+        /// </summary>
+        /// <instructions>
+        /// Force truth where there is misdirection.
+        /// </instructions>
         [Koan]
         public void AssertTruth()
         {  
-            // This should be true
              Assert.IsTrue(false);
         }
 
-        // Enlightenment may be more easily achieved with appropriate  messages. 
+        /// <summary>
+        /// To understand reality, we must compare our expectations against reality. 
+        /// </summary>
+        /// <instructions>
+        /// Make reality fit your expectations.
+        /// </instructions>
         [Koan]
         public void AssertWithMessage()
         { 
-
             Assert.IsTrue(false, "This should be true -- Please fix this");
-            // To understand reality, we must compare our expectations against reality. 
         }
+
+        /// <summary>
+        /// Sometimes you must fill in the blanks.
+        /// </summary>
+        /// <instructions>
+        /// Complete the puzzle by placing the missing piece.
+        /// </instructions>
         [Koan]
         public void AssertEquality()
         {
             var expected_value = 1 + 1;
-            var actual_value = __;
+            var actual_value = FILL_ME_IN;
          
 
             Assert.AreEqual(expected_value, actual_value);
         }
-        // Sometimes we will ask you to fill in the values
-        [Koan]
-        public void FillInValues()
-        {
-            Assert.AreEqual(1 + 1, __);
-        }
 
-        const string __ = "FILL ME IN";
+        private const string FILL_ME_IN = "FILL ME IN";
     }
 }

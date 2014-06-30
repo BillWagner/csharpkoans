@@ -1,102 +1,132 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using CSharpKoans.Core;
 using NUnit.Framework;
 
 namespace CSharpKoans
 {
+    /// <summary>
+    /// LINQ, or Language Integrated Query, is a powerful tool
+    /// for querying data within your program as if it were a database.
+    /// LINQ allows for things such as list comprehensions as well.
+    /// LINQ also provides many extension methods to collections.
+    /// These extensions, for example, implement Set operations in
+    /// some of the collections. (Union, Intersection, etc)
+    /// </summary>
     public class AboutLinq : KoanContainer
     {
-   
-
+        /// <summary>
+        /// LINQ can be used to easily select members of a collection
+        /// which match a certain criteria.
+        /// </summary>
+        /// <instructions>
+        /// Provide a LINQ query which fulfils the expected behavior.
+        /// </instructions>
         [Koan]
         public void LINQQueriesLookKindaLikeSQL()
         {
-            /* linq query syntax */
             var numbers = new List<int> { 1, 2, 3, 4, 5 };
             IEnumerable<int> evens = from n in numbers
                                      where n % 2 == 0
                                      select n;
-            /* n is the range variable */
 
-            Assert.AreEqual(__, evens.Count());
+            Assert.AreEqual(FILL_ME_IN, evens.Count());
 
-            /* now modify this query to get the odd numbers */
-            IEnumerable<int> odds = numbers/* add a query here */;
+            IEnumerable<int> odds = LINQ_FILL_ME_IN;
 
-            Assert.AreEqual(__, odds.Count());
-
+            Assert.AreEqual(FILL_ME_IN, odds.Count());
         }
 
+        /// <summary>
+        /// LINQ has two forms. One form is that of extension methods for the collections.
+        /// The other is the form of the LINQ syntax.
+        /// </summary>
+        /// <instructions>
+        /// Provide a LINQ statement using LINQ syntax to duplicate the form provided.
+        /// </instructions>
         [Koan]
         public void LinqIsJustAlternateSyntaxForMethodsOnEnumerable()
         {
             var numbers = new List<int> { 1, 2, 3, 4, 5 };
 
-            /* instead of the function n=>true, put in the correct delegate of form n=> fn(n) */
-            IEnumerable<int> evens = numbers.Where(n => true /*change this lambda  */).Select(n => n);
+            IEnumerable<int> evens = numbers.Where(n => n % 2 == 0).Select(n => n);
             Assert.AreEqual(2, evens.Count());
 
 
-            /* you don't even need the Select() here */
-            IEnumerable<int> noSelectEvens = numbers.Where(n => true);
-            Assert.AreEqual(2, noSelectEvens.Count());
+            IEnumerable<int> linqSyntaxEvens = LINQ_FILL_ME_IN;
+            Assert.AreEqual(2, linqSyntaxEvens.Count());
         }
 
+        /// <summary>
+        /// The Enumerable class may be used to create a range of values.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the values that properly predict the behavior of the given code.
+        /// </instructions>
         [Koan]
         public void UseTheEnumerableClasstoCreateSequences()
         {
             IEnumerable<int> integers = Enumerable.Range(0, 10);
 
-            /* what does this put into anArray? */
-            int[] anArray = integers.Select(i => i*i).ToArray();
+            int[] anArray = integers.Select(i => i).ToArray();
 
-            /* fill in true or false */
-            Assert.AreEqual(__, anArray.Contains(1));
-            Assert.AreEqual(__, anArray.Contains(3));
-            Assert.AreEqual(__, anArray.Contains(100));
-
-
+            Assert.AreEqual(FILL_ME_IN, anArray.Contains(1));
+            Assert.AreEqual(FILL_ME_IN, anArray.Contains(3));
+            Assert.AreEqual(FILL_ME_IN, anArray.Contains(100));
         }
 
-      
-
+        /// <summary>
+        /// The form of LINQ that takes the form of methods is just as powerful
+        /// as the LINQ syntax form.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the lambdas to match the expected value.
+        /// </instructions>
         [Koan]
         public void LINQQueriesCanSelectAnything()
         {
-
             var numbers = new List<int> { 1, 2, 3, 4, 5 };
 
-            /* instead of the function true, put in the correct function of form n=> fn(n), with return type bool */
-            var squaredEvens = numbers.Where(n =>true).Select(default(Func<int, bool>)); 
+            var squaredEvens = numbers.Where(LAMBDA_FILL_ME_IN).Select(LAMBDA_FILL_ME_IN); 
             Assert.AreEqual(4, squaredEvens.First());
         }
 
-        /* Linq statements are lazy.  This means that an enumerable evaluates on-demand, rather than up front */
-
-     
+        /// <summary>
+        /// LINQ execution happens on-demand. The query is not executed until
+        /// it has a reason to be. Things such as calling methods
+        /// on the expected output can force this execution.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the values to match what would be expected.
+        /// </instructions>
+        /// <hint>
+        /// For Koans related to the Library object, it may be useful to investigate
+        /// the Library.cs file.
+        /// </hint>
         [Koan]
         public void LinqStatementExecutionIsDeferred()
         {
             int count = 0;
             var aSelectStatement = from b in Library.Books
                                    where count++ > 0
-                                   select CountMe(b); 
+                                   select Count(b); 
      
 
-            Assert.AreEqual(count, "Fill me in", "How many times was CountMe called so far?");
+            Assert.AreEqual(count, FILL_ME_IN, "How many times was Count called so far?");
 
-            /* calling ToList executes the statement */
-            var aSelectStatementExecuted = aSelectStatement.ToList();
+            var aSelectStatementIsNowExecuted = aSelectStatement.ToList();
 
-            Assert.AreEqual(count, "Fill me in", "How many times was CountMe called now?");
-        
+            Assert.AreEqual(count, FILL_ME_IN, "How many times was Count called now?");
         }
 
-        /* using fluent linq syntax below ...*/
-
+        /// <summary>
+        /// The on-demand execution of LINQ can be used to provide efficiency where
+        /// it would otherwise execute many times.
+        /// </summary>
+        /// <instructions>
+        /// Provide values to properly predict the behavior of LINQ's laziness.
+        /// </instructions>
         [Koan]
         public void LinqLazinessCanBeUsefulForEfficiency()
         {
@@ -104,48 +134,47 @@ namespace CSharpKoans
 
             Random rand = new Random();
 
-            /* note: we are using a multi-statement function in our select statement.
-             * you normally should not have a side effect in your select lambda .
-           *  If you didn't want to count, you would write this as just:
-           *  Enumerable.Repeat(0, 100000).Select(i=> rand.Next())
-           *  */
             var randomSequence = Enumerable.Repeat(0, 100000).Select<int, int>(i =>
             {
                 counter++;
                 return rand.Next();
             });
 
+            Assert.AreEqual(FILL_ME_IN, counter);
 
-            /* how many times is the random number generator used? we are calling select on a 100000-item list... */
-            Assert.AreEqual(__, counter);
-
-            /* this time, we evaluate the first item in our random sequence... */
             var first = randomSequence.First();
 
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
 
-            /* Thanks to the lazy nature of LINQ, the sequence is not pre-computed and stored in an array, 
-             * but instead random numbers are generated on-demand, as you iterate over randomSequence. */
             var second = randomSequence.Skip(1).First();
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
         }
 
-
+        /// <summary>
+        /// Sometimes the full LINQ query is forced to execute.
+        /// Some methods will force this.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the values to match the expected behavior.
+        /// </instructions>
         [Koan]
         public void SomeQueriesForceImmediateExecution()
         {
-
             count = 0;
             var books = from b in Library.Books
-                      select CountMe(b);
+                        select Count(b);
 
-            /*   Functions like Count (also: Average(), Max() ) execute without an explicit foreach statement, but foreach is used to iterate through the results (and this executes the statement)  */
-           var numBooks= books.Count();
-           Assert.AreEqual("Fill me in", numBooks, "Just getting the number of books in our library.");
-           Assert.AreEqual(count, "Fill me in", "How many times was CountMe called?");
-
+            var numBooks = books.Count();
+            Assert.AreEqual(count, FILL_ME_IN, "How many times was Count called?");
         }
 
+        /// <summary>
+        /// Some methods cause LINQ queries to execute each time they are called.
+        /// Even if they are called in different parts of the code.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the values to match the expected behavior.
+        /// </instructions>
         [Koan]
         public void CountOnIEnumerableEnumeratesTwice()
         {
@@ -158,16 +187,22 @@ namespace CSharpKoans
 
             var countBooks = books.Count();
 
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
 
             var countAgain = books.Count();
-            Assert.AreEqual(__, counter);
+
+            Assert.AreEqual(FILL_ME_IN, counter);
         }
 
+        /// <summary>
+        /// Some LINQ methods stop evaluation as soon as their criteria is met.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the values to match the expected behavior.
+        /// </instructions>
         [Koan]
         public void AnyStopsAfterConditionHasBeenReachedOnce()
         {
-            /* note the order of the books in the library */
             int counter = 0;
             var earlyBooks = Library.Books.Any(b =>
             {
@@ -175,7 +210,7 @@ namespace CSharpKoans
                 return b.PublicationYear < 1900;
             });
 
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
 
             counter = 0;
             var booksList = Library.Books.Any(b =>
@@ -184,9 +219,16 @@ namespace CSharpKoans
                 return b.PublicationYear < 1970;
             });
 
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
         }
 
+        /// <summary>
+        /// Lists store their length. Running a count on a list
+        /// will only result in one enumeration.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the values to match the expected behavior.
+        /// </instructions>
         [Koan]
         public void CountOnListEnumeratesOnce()
         {
@@ -199,15 +241,20 @@ namespace CSharpKoans
 
             var countBooks = booksList.Count();
 
-            Assert.AreEqual(__, counter);
+            Assert.AreEqual(FILL_ME_IN, counter);
 
             var countAgain = booksList.Count();
-            Assert.AreEqual(__, counter);
+
+            Assert.AreEqual(FILL_ME_IN, counter);
         }
       
-
-      
-
+        /// <summary>
+        /// The Orderby LINQ clause will sort the results by the 
+        /// provided field.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the values to match the expeceted behavior.
+        /// </instructions>
         [Koan]
         public void OrderbyClauseSortsTheOutputSequence()
         {
@@ -219,10 +266,18 @@ namespace CSharpKoans
             var byYear = from b in Library.Books
                          orderby b.PublicationYear
                          select b.Title;
-            Assert.AreEqual("Fill me in", byYear.First());
 
+            Assert.AreEqual(FILL_ME_IN, byYear.First());
         }
 
+        /// <summary>
+        /// If you provide multiple fields to order by then LINQ
+        /// will sort by the first and then sort the resulting list
+        /// by the second for each item in the first sort.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the values to match the expected behavior.
+        /// </instructions>
         [Koan]
         public void OrderbySortsUsingMultipleFieldsInTheOutputSequence()
         {
@@ -234,39 +289,35 @@ namespace CSharpKoans
             var byYear = from b in Library.Books
                          orderby b.PublicationYear, b.Author
                          select b.Title;
-            Assert.AreEqual("Fill me in", byYear.First());
 
+            Assert.AreEqual(FILL_ME_IN, byYear.First());
         }
 
+        /// <summary>
+        /// LINQ can be used in many interesting ways. One such way is adding together
+        /// all of the items in a sequence.
+        /// </summary>
+        /// <instructions>
+        /// Using the Aggregate extension method, create a LINQ query that will create
+        /// a comma separated list of the titles of the books in the library.
+        /// </instructions>
         [Koan]
         public void LINQCanCombineSequenceElements()
         {
-            // hint:  Aggregate() method builds a single result from a sequence
-            var titles = "use linq to build a string that is the comma separated list of all the titles in the library";
-
-            // build the list of titles using a LINQ query
-            Assert.AreEqual("Lolita, Slaughterhouse-Five, The White Tiger, Anna Karenina", titles);
+            var titles = LINQ_FILL_ME_IN;
+            Assert.AreEqual("Lolita, Slaughterhouse-Five, The White Tiger, Anna Karenina, ", titles);
         }
 
-        /* this is a utility function for the query-syntax linq statements.  do not modify */
         int count = 0;
-        public T CountMe<T>(T item )
+        public T Count<T>(T item )
         {
             count++;
             return item;
         }
 
-
-        public class FILLMEIN
-        { }
-        private bool ___()
-        {
-            return true;
-        }
-
-        const string __ = "FILL ME IN";
-
-        public Library Library = new Library();
-
+        private const string FILL_ME_IN = "FILL ME IN";
+        private IEnumerable<int> LINQ_FILL_ME_IN = null;
+        private Func<int, bool> LAMBDA_FILL_ME_IN = null;
+        private Library Library = new Library();
     }
 }

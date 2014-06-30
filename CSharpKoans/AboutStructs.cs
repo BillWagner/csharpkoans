@@ -5,23 +5,34 @@ namespace CSharpKoans
 {
     public class AboutStructs : KoanContainer
     {
-        public struct Point
+        private struct Point
         {
             public double X;
             public double Y;
         }
 
-        private const double FILL_ME_N = -1;
-
+        /// <summary>
+        /// Structs are value types, and so they may never be intialized to null.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the values with the expected behavior.
+        /// </instructions>
         [Koan]
         public void UnderstandDefaultValuesForStructcs()
         {
             var pt = new Point();
 
-            Assert.AreEqual(FILL_ME_N, pt.X);
-            Assert.AreEqual(FILL_ME_N, pt.Y);
+            Assert.AreEqual(FILL_ME_IN, pt.X);
+            Assert.AreEqual(FILL_ME_IN, pt.Y);
         }
-
+        
+        /// <summary>
+        /// Since structs are value types, when they are copied their whole
+        /// value is copied over rather than a reference to the object.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the values with the expected behavior.
+        /// </instructions>
         [Koan]
         public void UnderstandStructCopySemantics()
         {
@@ -36,12 +47,19 @@ namespace CSharpKoans
             pt2.X *= 2;
             pt2.Y *= 2;
 
-            Assert.AreEqual(FILL_ME_N, pt1.X);
-            Assert.AreEqual(FILL_ME_N, pt1.Y);
-            Assert.AreEqual(FILL_ME_N, pt2.X);
-            Assert.AreEqual(FILL_ME_N, pt2.Y);
+            Assert.AreEqual(FILL_ME_IN, pt1.X);
+            Assert.AreEqual(FILL_ME_IN, pt1.Y);
+            Assert.AreEqual(FILL_ME_IN, pt2.X);
+            Assert.AreEqual(FILL_ME_IN, pt2.Y);
         }
 
+        /// <summary>
+        /// Structs may be converted to objects and vice-versa. However, for an object
+        /// to become a struct, it must have once been that struct.
+        /// </summary>
+        /// <instruction>
+        /// Fill in the values with the expected behavior.
+        /// </instruction>
         [Koan]
         public void UndestandStructConversionsToObject()
         {
@@ -55,27 +73,9 @@ namespace CSharpKoans
 
             pt1.X = 12;
 
-            Assert.AreEqual(FILL_ME_N, ((Point)pt2).X);
+            Assert.AreEqual(FILL_ME_IN, ((Point)pt2).X);
         }
 
-        [Koan]
-        public void UnderstandHowToCreateMethodsInStructs()
-        {
-            var pt1 = new Point
-            {
-                X = 3,
-                Y = 4
-            };
-
-            double distance = -1;
-
-            // Uncomment this line and implement the distance property:
-            // Hint: The System.Math class has a Sqrt() method that calculates Square ruuts.
-            // distance = pt1.Distance();
-
-            Assert.AreEqual(5, distance);
-        }
-
-
+        private const double FILL_ME_IN = -1;
     }
 }

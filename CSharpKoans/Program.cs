@@ -9,8 +9,6 @@ namespace CSharpKoans
     {
         static void Main(string[] args)
         {
-
-
             new PathToEnlightenment().Execute();
         }
     }

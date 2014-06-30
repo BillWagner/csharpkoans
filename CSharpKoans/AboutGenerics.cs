@@ -1,78 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using CSharpKoans.Core;
 using System.Collections;
 using NUnit.Framework;
 
 namespace CSharpKoans
 {
-
-
+    /// <summary>
+    /// Generics allow for blanket implementations.
+    /// </summary>
     public class AboutGenerics : KoanContainer
     {
-
- 
-    
+        /// <summary>
+        /// Some objects may contain many others of varying types.
+        /// You must be careful of what you put in your objects.
+        /// You must enforce your own type-safety.
+        /// </summary>
+        /// <instructions>
+        /// The code will throw exceptions during runtime.
+        /// Place your safety nets to catch odd types and allow the code
+        /// to run without error.
+        /// </instructions>
         [Koan]
         public void UsingArrayListMeansNoTypeSafety()
         {
-            /* you can add all sorts of types of objects to an ArrayList */
             ArrayList mylist = new ArrayList();
             mylist.Add(7);
             mylist.Add(3);
-            mylist.Add("srtsolutions");
-
-            /* there's no type safety for elements in an ArrayList: since ArrayList is always of objects we have to cast on retrieval, this compiles */
-            mylist.Insert(2, "a2");
+            mylist.Add("Grand Circus");
 
             int t = 0;
-            // This causes an InvalidCastException to be thrown.
-            foreach (int x in mylist)
+            foreach (var x in mylist)
             {
-                /* fix the error by adding a conditional here to check the type of x
-                * hint:  "srt".GetType()== typeof(string)
-                 */
-                    t += x;
-                
+                    t += (int)x;
             }
 
-           Assert.IsInstanceOf<int>(mylist[0]);
+            Assert.IsInstanceOf<CLASS_FILL_ME_IN>(mylist[2]);
 
-            /* fix this statement so that it runs and makes sense */
-           Assert.IsInstanceOf<FILLMEIN>(mylist[2]);
+            Assert.AreEqual(10, t);
         }
      
-
+        /// <summary>
+        /// The type of objects that a list contains may be defined.
+        /// This is possible through generics.
+        /// </summary>
+        /// <instructions>
+        /// Provide the code to add up the contents of the list.
+        /// As a bonus, attempt to add an object of type string to the list.
+        /// </instructions>
         [Koan]
         public void WithAGenericListTypeSafetyIsEnsured()
         {
-            /* A Generic list is a List<T> ("list of T") where T is any C# type.  Generics are similar in concept to C++ templates
-             *  They allow you to create a data structure without committing to a type, and reuse algorithms and code 
-             */
-
-
-            /* by specifying the generic type, you can create a collection that is type-safe at compile-time.*/
             List<int> myList = new List<int>();
             myList.Add(7);
             myList.Add(3);
 
-           // myList.Add("srtsolutions"); //compile-time error
-
             int t = 0;
             foreach (var x in myList)
             {
-               
-                /* write a function to add up all of the values in myList */
+               //FILL_ME_IN
             }
            
-          
             Assert.AreEqual(10, t);
-
-            
         }
-
 
         public class Animal
         {
@@ -81,9 +72,6 @@ namespace CSharpKoans
             {
             return "hello";
             }
-
-  
-          
         }
 
         public class Cat : Animal
@@ -92,8 +80,6 @@ namespace CSharpKoans
             {
                 return "Meow";
             }
-
-  
         }
 
         public class Dog : Animal
@@ -104,48 +90,66 @@ namespace CSharpKoans
             }
         }
 
+        /// <summary>
+        /// If you match the description of what's expected, you will find acceptance.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the expected values.
+        /// Keep in mind which object is where and what type it is.
+        /// </instructions>
         [Koan]
         public void YouCanUseReferenceTypesWithInheritanceInGenericLists()
         {
-            /* Animal is the superclass of Dog, above */
             List<Animal> animals = new List<Animal>();
 
-            /* you can add subclasses of animals to the collection ... */
             animals.Add(new Dog { Name = "Fido" });
             animals.Add(new Animal());
             animals.Add(new Cat());
 
-            /* but what type are the elements? */
-            Assert.IsInstanceOf<object>(animals.First());
+            Assert.IsInstanceOf<CLASS_FILL_ME_IN>(animals.First());
 
-            /* Each Animal has the appropriate behavior based on its child class, though! */
-            Assert.AreEqual(___, animals.First().Talk());
-            Assert.AreEqual(___, animals[2].Talk());
+            Assert.AreEqual(FILL_ME_IN, animals.First().Talk());
+
+            Assert.AreEqual(FILL_ME_IN, animals[2].Talk());
         }
 
         public interface IReadable
         {
             string TurnToPage(int page);
-        
         }
+
         public class Book : IReadable
         {
             private IList<string> pages = new List<string> { "properties", "generics", "lambdas", "linq","constructors", "indexers" };
             public string TurnToPage(int page)
             {
-                if(page<0) return "This book is dedicated to Anders Hejlsberg.";
-                if (page < 6 ) return pages[page];
+                if (page < 0)
+                {
+                    return "This book is dedicated to Anders Hejlsberg.";
+                }
+
+                if (page < 6)
+                {
+                    return pages[page];
+                }
+
                 return "The End";
             }
         }
+
         public class Magazine : IReadable
         {
             public string TurnToPage(int page)
             {
-                if (page % 2 == 0) return "advertisement";
-                else return "content";
+                if (page%2 == 0)
+                {
+                    return "advertisement";
+                }
+                
+                return "content";
             }
         }
+
         public class Blog : IReadable
         {
             public string TurnToPage(int page) 
@@ -154,7 +158,13 @@ namespace CSharpKoans
             }
         }
 
-        // use a list of an interface: allows you to add all implementations of the interface
+        /// <summary>
+        /// Interfaces define the descriptions required.
+        /// All objects that follow the interface are acceptable.
+        /// </summary>
+        /// <instructions>
+        /// Fill in the correct expected values.
+        /// </instructions>
         [Koan]
         public void AGenericDataStructureCanContainInterfaceImplementors()
         {
@@ -164,28 +174,24 @@ namespace CSharpKoans
             readingMaterial.Add(new Blog());
             readingMaterial.Add(new Magazine());
 
-            Assert.AreEqual(___, readingMaterial.First().TurnToPage(1));
-            Assert.AreEqual(___, readingMaterial[2].TurnToPage(1));
+            Assert.AreEqual(FILL_ME_IN, readingMaterial.First().TurnToPage(1));
+            Assert.AreEqual(FILL_ME_IN, readingMaterial[2].TurnToPage(1));
         }
 
-   
-        /* a bag is a multiset: each item can occur more than once, and we keep track of the duplicates */
         public class Bag<T> 
         {
-            protected Dictionary<T, int> storage = new Dictionary<T, int>();
+            protected Dictionary<T, int> Storage = new Dictionary<T, int>();
 
             public void Add(T item)
             {
-                if (storage.ContainsKey(item))
+                if (Storage.ContainsKey(item))
                 {
-                    storage[item] += 1;
+                    Storage[item] += 1;
                 }
                 else
                 {
-                    storage[item] = 1;
+                    Storage[item] = 1;
                 }
-
-               
             }
 
             public void AddRange(IEnumerable<T> items)
@@ -198,99 +204,96 @@ namespace CSharpKoans
 
             public int CountDistinct()
             {
-                return storage.Count;
+                return Storage.Count;
             }
-
-            /* you'll add the Contains method here... */
-
-
-            /* you'll add the Remove method here... */
-       
-
         }
 
+        /// <summary>
+        /// Generic types allow for their methods to affect any type that
+        /// they are instantiated to target.
+        /// </summary>
+        /// <instructions>
+        /// Uncomment each method call and add the appropriate method to the Bag class.
+        /// </instructions>
         [Koan]
         public void UsingSpecificInstanceOfGenericCollectionGivesYouTypeSafety()
         {
             Bag<string> myStrings = new Bag<string>();
             myStrings.Add("c#");
 
-            // myStrings.Add(new Book()); //won't compile
-
-             Assert.Fail("Comment me out, and un-comment the assert below and make it pass by writing a generic Contains method in the Bag class");
             //Assert.True(myStrings.Contains("c#"));
 
             var cat = new Cat { Name = "vega" };
             Bag<Animal> animals = new Bag<Animal>();
             animals.Add(cat);
 
-            /* uncomment this below once you have written a Contains method */
             //Assert.True(animals.Contains(cat));
 
-            Assert.Fail("Add a Remove method to Animal");
-            animals.Add(cat); // adding it again
+            animals.Add(cat);
 
-            /* uncomment the lines below once you've implemented the Remove method...*/
-            //animals.Remove(cat); /*removing it once */
+            //animals.Remove(cat);
 
             //Assert.IsTrue(animals.Contains(cat));
+
             //animals.Remove(cat);
 
             //Assert.IsFalse(animals.Contains(cat));
-
-
-            /* notice that the methods we've added to our Bag<T> have nothing to do with animals.  Now we can reuse them for any data type! */
         }
 
         public class SortableBag<T> : Bag<T> where T : System.IComparable<T>
         {
             public IEnumerable<T> Sort() 
             {
-                
                 return null;
             }
             public IEnumerable<T> Sort(IComparer<T> comparer)
             {
-
                 return null;
-
             }
         }
 
         public class LengthComparer : IComparer<string>
         {
+            /// <hint>
+            /// Should return -1 if x comes before y.
+            /// Should return 0 if x and y are equal.
+            /// Should return 1 if x comes after y.
+            /// </hint>
             public int Compare(string x, string y)
             {
                 throw new NotImplementedException();
             }
         }
         
-
-
+        /// <summary>
+        /// Sometimes it is necessary to exclude certain types.
+        /// Constraints on type arguments allow you to enforce
+        /// a rule on the type given.
+        /// </summary>
+        /// <instructions>
+        /// Implement the SortableBag.Sort() method to sort into the expected order.
+        /// 
+        /// Implement the SortableBag.Sort(IComparer) overload to use the provided 
+        /// IComparer to do the sorting decisions.
+        /// 
+        /// As a bonus, attempt to initalize SortableBag with a type argument
+        /// that does not implement IComparable.
+        /// </instructions>
         [Koan]
         public void ConstraintsOnGenericClassesPreventUnintendedUses()
         {
-            /* this does not compile because Animal does not implement IComparable
-             SortedBag<Animal> sortedAnimals = new SortedBag<Animal>();
-             * */
-
             SortableBag<string> people = new SortableBag<string>();
             people.AddRange(new List<string>{ "Bob", "Will", "Angie", "Dianne" });
             var sortedPeople = people.Sort();
 
-            /* make the following asserts pass by filling in the Sort function in SortableBag */
-            Assert.AreEqual(sortedPeople.Count(), people.CountDistinct());
             Assert.AreEqual("Angie", sortedPeople.First());
+            Assert.AreEqual("Will", sortedPeople.Last());
 
-
-            /* fill in the LengthComparer class to get this alternate sort working correctly */
             var sortedByLength = people.Sort(new LengthComparer());
             Assert.AreEqual("Bob", sortedByLength.First());
         }
 
-
-        public class FILLMEIN
-        { }
-        const int ___ = int.MaxValue;
+        private class CLASS_FILL_ME_IN { }
+        private const int FILL_ME_IN = int.MaxValue;
     }
 }

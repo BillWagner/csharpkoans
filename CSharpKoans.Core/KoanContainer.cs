@@ -3,40 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Reflection;
-using System.Data.Linq;
 
 namespace CSharpKoans.Core
 {
     public class KoanContainer
     {
-
         public static IEnumerable<MethodInfo> FindKoanMethods(KoanContainer container)
         {
-            return container.GetType().GetMethods().Where(m => hasKoanAttribute(m));
+            return container.GetType().GetMethods().Where(HasKoanAttribute);
         }
 
-        private static bool hasKoanAttribute(MethodInfo info)
+        private static bool HasKoanAttribute(MethodInfo info)
         {
-            return (info.GetCustomAttributes(typeof(KoanAttribute), true).Count()>0);
+            return (info.GetCustomAttributes(typeof(KoanAttribute), true).Any());
         }
 
-        public IEnumerable<KoanResult> RunKoans(KoanContainer container)
+        public IEnumerable<IKoanResult> RunKoans()
         {
-            return from k in FindKoanMethods(container) select getKoanResult(container, k);
+            return from k in FindKoanMethods(this) select GetKoanResult(k);
         }
 
-        private KoanResult getKoanResult(KoanContainer container, MethodInfo m)
+        private IKoanResult GetKoanResult(MethodInfo m)
         {
             try{
-                m.Invoke(container, new object[] { });
+                m.Invoke(this, new object[] { });
                 return new Success(m.Name + " has expanded your awareness.");
             }
             catch(Exception e)
             {
                 return new Failure(m.Name + " has damaged your karma.", e.InnerException);
             }
- 
         }
     }
-
 }
