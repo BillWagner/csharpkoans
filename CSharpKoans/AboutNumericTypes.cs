@@ -34,7 +34,7 @@ namespace CSharpKoans
             int initialValue = 5;
             double implicitlyConverted = initialValue;
 
-            int finalValue = FILL_ME_IN;
+            int finalValue = default(int);
 
             //finalValue = implicitlyConverted;
 

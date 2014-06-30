@@ -39,7 +39,7 @@ namespace CSharpKoans
             var Pinky = new object() as ICharacter;
 
             Assert.AreEqual("Holy Code Exercise, Batman! Holy Code Exercise, Batman! Holy Code Exercise, Batman! ", RepeatCatchPhrase(Robin));
-            Assert.AreEqual("Narf! Narf! Narf!", RepeatCatchPhrase(Pinky));
+            Assert.AreEqual("Narf! Narf! Narf! ", RepeatCatchPhrase(Pinky));
         }
     }
 }

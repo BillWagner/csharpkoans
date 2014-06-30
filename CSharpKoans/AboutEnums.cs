@@ -71,7 +71,7 @@ namespace CSharpKoans
         [Koan]
         public void EnumsCanTakeUndefinedValues()
         {
-            Direction toBeInvalid = Direction.Right;
+            Direction toBeInvalid = ENUM_FILL_ME_IN;
 
             Assert.AreEqual(42, (int)toBeInvalid);
         }
@@ -115,5 +115,6 @@ namespace CSharpKoans
         }
 
         private const int FILL_ME_IN = -1;
+        private const Direction ENUM_FILL_ME_IN = Direction.Up;
     }
 }

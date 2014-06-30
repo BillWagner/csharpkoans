@@ -70,7 +70,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="nutrition.xml" />
     <Content Include="senators_cfm.xml">
       <SubType>Designer</SubType>
     </Content>

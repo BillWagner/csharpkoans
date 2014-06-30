@@ -100,6 +100,10 @@ namespace CSharpKoans
         /// <instructions>
         /// Fill in the values to match what would be expected.
         /// </instructions>
+        /// <hint>
+        /// For Koans related to the Library object, it may be useful to investigate
+        /// the Library.cs file.
+        /// </hint>
         [Koan]
         public void LinqStatementExecutionIsDeferred()
         {
@@ -300,8 +304,8 @@ namespace CSharpKoans
         [Koan]
         public void LINQCanCombineSequenceElements()
         {
-            var titles = String.Empty;
-            Assert.AreEqual("Lolita, Slaughterhouse-Five, The White Tiger, Anna Karenina", titles);
+            var titles = LINQ_FILL_ME_IN;
+            Assert.AreEqual("Lolita, Slaughterhouse-Five, The White Tiger, Anna Karenina, ", titles);
         }
 
         int count = 0;

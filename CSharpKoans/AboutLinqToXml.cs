@@ -7,13 +7,17 @@ using NUnit.Framework;
 
 namespace CSharpKoans
 {
+    /// <summary>
+    /// LINQ is useful in searching XML files. For the Koans in this file
+    /// it may be required to open the XML file and investigate.
+    /// </summary>
     public class AboutLinqToXml : KoanContainer
     {
         private class Senator
         {
             public string LastName { get; set; }
             public string Party { get; set; }
-            public string Website { get; set; }
+            public string State { get; set; }
         }
 
         /// <summary>
@@ -104,6 +108,9 @@ namespace CSharpKoans
         /// <instructions>
         /// Fill in the LINQ queries to match the expected behavior.
         /// </instructions>
+        /// <hint>
+        /// The independent party has a party code of "ID"
+        /// </hint>
         [Koan]
         public void LinqToXmlCreatesObjectsFromXmlElements()
         {
@@ -111,39 +118,20 @@ namespace CSharpKoans
 
             var senatorObjects = LINQ_FILL_ME_IN;
 
-            Assert.AreEqual("", senatorObjects.Last().LastName);
+            Assert.AreEqual(FILL_ME_IN, senatorObjects.Last().LastName);
 
             var democrats = LINQ_FILL_ME_IN;
 
-            Assert.AreEqual(50, democrats.Count());
+            Assert.AreEqual(51, democrats.Count());
 
             var stateOfIndependentSenator = LINQ_FILL_ME_IN;
 
             Assert.AreEqual(stateOfIndependentSenator, "CT");
         }
 
-        private class Food
-        { 
-            
-        }
-
-        /// <summary>
-        /// LINQ may be used to operate on XML data by turning the data into objects.
-        /// </summary>
-        /// <instructions>
-        /// Fill in the Food class.
-        /// Capture the XML data into an IEnumerable of type Food.
-        /// </instructions>
-        [Koan]
-        public void YouCanMakeComplexQueriesIntoXmlFilesWithLinq()
-        {
-            var root = NutritionDoc.Root;            
-        }
-
         private const int FILL_ME_IN = -1;
         private IEnumerable<Senator> LINQ_FILL_ME_IN;
         private string[] ARRAY_FILL_ME_IN = new string[] { };
         XDocument SenatorsDoc = XDocument.Load(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "senators_cfm.xml"));
-        XDocument NutritionDoc = XDocument.Load(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "nutrition.xml"));
     }
 }

@@ -31,9 +31,9 @@ namespace CSharpKoans
             mylist.Add("Grand Circus");
 
             int t = 0;
-            foreach (int x in mylist)
+            foreach (var x in mylist)
             {
-                    t += x;
+                    t += (int)x;
             }
 
             Assert.IsInstanceOf<CLASS_FILL_ME_IN>(mylist[2]);
